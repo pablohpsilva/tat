@@ -1,0 +1,18 @@
+[debug] [2018-08-13T18:09:40.092Z] ----------------------------------------------------------------------
+[debug] [2018-08-13T18:09:40.095Z] Command:       /Users/pablohpsilva/.nvm/versions/node/v9.10.0/bin/node /Users/pablohpsilva/.nvm/versions/node/v9.10.0/bin/firebase deploy
+[debug] [2018-08-13T18:09:40.095Z] CLI Version:   4.0.3
+[debug] [2018-08-13T18:09:40.095Z] Platform:      darwin
+[debug] [2018-08-13T18:09:40.095Z] Node Version:  v9.10.0
+[debug] [2018-08-13T18:09:40.096Z] Time:          Mon Aug 13 2018 15:09:40 GMT-0300 (-03)
+[debug] [2018-08-13T18:09:40.096Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-13T18:09:40.107Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-13T18:09:40.107Z] > authorizing via signed-in user
+[debug] [2018-08-13T18:09:40.109Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/tatapp-84ac1  
+  
+ Mon Aug 13 2018 15:09:40 GMT-0300 (-03)
+[debug] [2018-08-13T18:09:41.311Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-13T18:09:41.312Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/tatapp-84ac1/tokens  
+  
+ Mon Aug 13 2018 15:09:41 GMT-0300 (-03)
+[debug] [2018-08-13T18:09:42.092Z] <<< HTTP RESPONSE 200
