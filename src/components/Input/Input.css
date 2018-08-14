@@ -1,0 +1,25 @@
+.Input--wrapper {
+  background-color: rgba(255, 255, 255, .8);
+  display: flex;
+  padding: 4px 8px;
+  flex-direction: column;
+  font-family: Montserrat;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.Input--label {
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.Input--text {
+  background-color: transparent;
+  border: none;
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 12px;
+  outline: none;
+}

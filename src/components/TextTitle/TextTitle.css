@@ -1,0 +1,22 @@
+.TextTitle--wrapper {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.TextTitle--wrapper-invert {
+  color: rgba(255, 255, 255, 1);
+}
+
+.TextTitle--wrapper.TextTitle--wrapper-subtitle,
+.TextTitle--wrapper.TextTitle--wrapper-note {
+  color: #B4B4B4;
+}
+
+.TextTitle--wrapper.TextTitle--wrapper-note {
+  font-weight: 400;
+}
