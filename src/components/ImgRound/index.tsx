@@ -6,7 +6,7 @@ import IImgRound from './IImgRound'
 
 import './ImgRound.css'
 
-class ImgRound extends React.PureComponent<any, IImgRound> {
+class ImgRound extends React.PureComponent<IImgRound, any> {
   constructor(props: IImgRound) {
     super (props)
 
@@ -26,13 +26,16 @@ class ImgRound extends React.PureComponent<any, IImgRound> {
   }
 
   public handleOnChangeInputFile (event: any) {
-    readAsDataURL(event)
-      .then(({ result }) => {
-        if (!result || result.indexOf('data:image') === -1) {
-          return
-        }
-        this.props.onChange(result)
-      })
+    const { onChange } = this.props
+    if (onChange) {
+      readAsDataURL(event)
+        .then(({ result }) => {
+          if (!result || result.indexOf('data:image') === -1) {
+            return
+          }
+          onChange(result)
+        })
+    }
   }
 
   public render () {

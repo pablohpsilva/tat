@@ -15,7 +15,15 @@ function getPresentationHTMLTag (subtitle: boolean, note: boolean) {
   return 'h2'
 }
 
-class TextTitle extends React.PureComponent<any, ITextTitle> {
+class TextTitle extends React.PureComponent<ITextTitle, any> {
+  public static defaultProps = {
+    invert: false,
+    note: false,
+    subtitle: false,
+    title: true,
+    value: ''
+  }
+
   constructor (props: ITextTitle) {
     super(props)
   }
@@ -27,6 +35,7 @@ class TextTitle extends React.PureComponent<any, ITextTitle> {
       subtitle,
       value
     } = this.props
+
     const HTMLTag = getPresentationHTMLTag(subtitle, note)
 
     return (

@@ -7,7 +7,7 @@ import IClientItem from './IClientItem'
 
 import './ClientItem.css'
 
-class ClientItem extends React.PureComponent<any, IClientItem> {
+class ClientItem extends React.PureComponent<IClientItem, any> {
   public render () {
     const {
       image,

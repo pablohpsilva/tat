@@ -4,7 +4,7 @@ import IInput from './IInput'
 
 import './Input.css'
 
-class Input extends React.Component<any, IInput> {
+class Input extends React.Component<IInput, any> {
   constructor (props: IInput) {
     super(props)
   }

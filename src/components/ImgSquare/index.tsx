@@ -6,7 +6,7 @@ import IImgSquare from './IImgSquare'
 
 import './ImgSquare.css'
 
-class ImgSquare extends React.PureComponent<any, IImgSquare> {
+class ImgSquare extends React.PureComponent<IImgSquare, any> {
   constructor(props: IImgSquare) {
     super(props)
 
