@@ -6,7 +6,7 @@ import IImgRound from './IImgRound'
 
 import './ImgRound.css'
 
-class ImgRound extends React.Component<any, IImgRound> {
+class ImgRound extends React.PureComponent<any, IImgRound> {
   constructor(props: IImgRound) {
     super (props)
 

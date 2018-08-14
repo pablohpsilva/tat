@@ -1,0 +1,10 @@
+.SlideImg--wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.SlideImg--wrapper
+.ImgSquare--wrapper:not(:last-child) {
+  margin-right: 16px;
+}

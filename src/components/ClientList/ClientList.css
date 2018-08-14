@@ -1,0 +1,4 @@
+.ClientList--wrapper
+.ClientItem--wrapper:nth(n*2) {
+  background-color: #F8F8F8;
+}

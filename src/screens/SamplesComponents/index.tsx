@@ -1,7 +1,9 @@
 import * as React from 'react'
+import ClientItem from '../../components/ClientItem'
 import ImgRound from '../../components/ImgRound'
 import ImgSquare from '../../components/ImgSquare'
 import Input from '../../components/Input'
+import SlideImg from '../../components/SlideImg'
 import TextTitle from '../../components/TextTitle'
 
 class SampleComponents extends React.PureComponent<any, any> {
@@ -9,12 +11,22 @@ class SampleComponents extends React.PureComponent<any, any> {
     super(props)
 
     this.state = {
+      clients: [
+        { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' }
+      ],
       fileImg: 'https://i.stack.imgur.com/B1qxgl.png',
       inputVal: '',
+      slides: [
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' }
+      ]
     }
 
     this.handleInputVal = this.handleInputVal.bind(this)
     this.handleInputFile = this.handleInputFile.bind(this)
+    this.handleClickSlide = this.handleClickSlide.bind(this)
   }
 
   public handleInputVal({ target: { value: inputVal } }: { target: { value: any } }) {
@@ -22,8 +34,12 @@ class SampleComponents extends React.PureComponent<any, any> {
   }
 
   public handleInputFile(base64Image: string) {
-    debugger
     this.setState((state: any) => Object.assign({}, state, { fileImg: base64Image }))
+  }
+
+  public handleClickSlide (image: any, index: number) {
+    console.log(image)
+    console.log(index)
   }
 
   public render () {
@@ -98,11 +114,11 @@ class SampleComponents extends React.PureComponent<any, any> {
         <ImgSquare/>
 
         <ImgSquare
-        src={this.state.fileImg}
+          src={this.state.fileImg}
           text="FULANO DE TAL"/>
 
         <ImgSquare
-        src={this.state.fileImg}
+          src={this.state.fileImg}
           text="FULANO DE TAL"
           sidetext="08/08/2018"/>
 
@@ -111,6 +127,23 @@ class SampleComponents extends React.PureComponent<any, any> {
           src={this.state.fileImg}
           text="FULANO DE TAL"
           sidetext="08/08/2018"/>
+
+        <hr />
+
+        <TextTitle
+          value="SlideImg's components:" />
+
+        <SlideImg
+          onClick={this.handleClickSlide}
+          images={this.state.slides}/>
+
+        <hr />
+
+        <TextTitle
+          value="ClientList's components:" />
+
+        <ClientItem
+          {...this.state.clients[0]}/>
 
       </div>
     )
