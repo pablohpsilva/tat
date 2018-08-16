@@ -1,0 +1,14 @@
+.Button--wrapper {
+  background-color: transparent;
+  border: none;
+  font-family: Montserrat, sans-serif;
+  min-width: 80px;
+  height: 40px;
+  outline: none;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+.Button--icon {
+  height: 100%;
+}

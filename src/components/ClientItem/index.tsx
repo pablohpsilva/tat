@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import Button from '../Button'
 import ImgRound from '../ImgRound'
 import TextTitle from '../TextTitle'
 
@@ -14,6 +15,7 @@ class ClientItem extends React.PureComponent<IClientItem, any> {
       lastVisit,
       lastPurchase,
       name,
+      onClick,
       phone,
     } = this.props
 
@@ -48,7 +50,8 @@ class ClientItem extends React.PureComponent<IClientItem, any> {
 
         <div
           className="ClientItem--actions">
-          actions
+          <Button
+            onClick={onClick}/>
         </div>
       </div>
     )

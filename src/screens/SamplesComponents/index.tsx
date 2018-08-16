@@ -1,10 +1,13 @@
 import * as React from 'react'
+import Button from '../../components/Button'
 import ClientItem from '../../components/ClientItem'
 import ImgRound from '../../components/ImgRound'
 import ImgSquare from '../../components/ImgSquare'
 import Input from '../../components/Input'
 import SlideImg from '../../components/SlideImg'
 import TextTitle from '../../components/TextTitle'
+
+import buttonVisibleImage from '../../static/img/visible.svg'
 
 class SampleComponents extends React.PureComponent<any, any> {
   constructor (props: any) {
@@ -27,6 +30,7 @@ class SampleComponents extends React.PureComponent<any, any> {
     this.handleInputVal = this.handleInputVal.bind(this)
     this.handleInputFile = this.handleInputFile.bind(this)
     this.handleClickSlide = this.handleClickSlide.bind(this)
+    this.handleClickButton = this.handleClickButton.bind(this)
   }
 
   public handleInputVal({ target: { value: inputVal } }: { target: { value: any } }) {
@@ -40,6 +44,13 @@ class SampleComponents extends React.PureComponent<any, any> {
   public handleClickSlide (image: any, index: number) {
     console.log(image)
     console.log(index)
+  }
+
+  public handleClickButton (callback: () => void) {
+    window.setTimeout(() => {
+      console.log('oi')
+      callback()
+    }, 1E3)
   }
 
   public render () {
@@ -136,6 +147,21 @@ class SampleComponents extends React.PureComponent<any, any> {
         <SlideImg
           onClick={this.handleClickSlide}
           images={this.state.slides}/>
+
+        <hr />
+
+        <TextTitle
+          value="Button's components:" />
+
+        <Button
+          onClick={this.handleClickButton}
+          loader={true}
+          value="button"/>
+
+        <Button
+          onClick={this.handleClickButton}
+          icon={true}
+          value={buttonVisibleImage}/>
 
         <hr />
 
