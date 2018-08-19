@@ -5,6 +5,7 @@ import ImgRound from '../../components/ImgRound'
 import ImgSquare from '../../components/ImgSquare'
 import Input from '../../components/Input'
 import SlideImg from '../../components/SlideImg'
+import TextArea from '../../components/TextArea'
 import TextTitle from '../../components/TextTitle'
 
 import buttonVisibleImage from '../../static/img/visible.svg'
@@ -100,6 +101,14 @@ class SampleComponents extends React.PureComponent<any, any> {
           placeholder="type here"
           onChange={this.handleInputVal}/>
 
+        <Input
+          disabled={false}
+          outline={true}
+          label="label"
+          value={this.state.inputVal}
+          placeholder="type here"
+          onChange={this.handleInputVal}/>
+
         <hr />
 
         <TextTitle
@@ -153,15 +162,56 @@ class SampleComponents extends React.PureComponent<any, any> {
         <TextTitle
           value="Button's components:" />
 
-        <Button
-          onClick={this.handleClickButton}
-          loader={true}
-          value="button"/>
+        <div
+          style={{
+            alignItems: 'center',
+            display: 'flex',
+            maxWidth: '100vw',
+            overflowX: 'scroll'
+          }}>
+          <Button
+            onClick={this.handleClickButton}
+            loader={true}
+            value="button" />
 
-        <Button
-          onClick={this.handleClickButton}
-          icon={true}
-          value={buttonVisibleImage}/>
+          <Button
+            onClick={this.handleClickButton}
+            loader={true}
+            outline={true}
+            value="button" />
+
+          <Button
+            onClick={this.handleClickButton}
+            icon={true}
+            value={buttonVisibleImage} />
+
+          <Button
+            onClick={this.handleClickButton}
+            loader={true}
+            icon={true}
+            value={buttonVisibleImage} />
+
+          <Button
+            onClick={this.handleClickButton}
+            loader={true}
+            disabled={true}
+            value="button" />
+
+          <Button
+            onClick={this.handleClickButton}
+            loader={true}
+            disabled={true}
+            icon={true}
+            value={buttonVisibleImage} />
+
+          <Button
+            onClick={this.handleClickButton}
+            loader={true}
+            disabled={true}
+            block={true}
+            icon={true}
+            value={buttonVisibleImage} />
+        </div>
 
         <hr />
 
@@ -170,6 +220,32 @@ class SampleComponents extends React.PureComponent<any, any> {
 
         <ClientItem
           {...this.state.clients[0]}/>
+
+        <hr />
+
+        <TextTitle
+          value="TextaArea's components:" />
+
+        <TextArea
+          value={this.state.inputVal}
+          label="textarea component"
+          placeholder="type here"
+          onChange={this.handleInputVal}/>
+
+        <TextArea
+          value={this.state.inputVal}
+          label="textarea component"
+          placeholder="type here"
+          disabled={true}
+          onChange={this.handleInputVal}/>
+
+        <TextArea
+          value={this.state.inputVal}
+          label="textarea component"
+          placeholder="type here"
+          disabled={true}
+          outline={true}
+          onChange={this.handleInputVal}/>
 
       </div>
     )

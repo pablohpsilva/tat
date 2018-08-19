@@ -1,3 +1,4 @@
+import className from 'classnames'
 import * as React from 'react'
 
 import IInput from './IInput'
@@ -5,6 +6,15 @@ import IInput from './IInput'
 import './Input.css'
 
 class Input extends React.Component<IInput, any> {
+  public static defaultProps = {
+    disabled: false,
+    label: '',
+    outline: false,
+    placeholder: '',
+    type: 'text',
+    value: ''
+  }
+
   constructor (props: IInput) {
     super(props)
   }
@@ -14,6 +24,7 @@ class Input extends React.Component<IInput, any> {
       disabled,
       label,
       onChange,
+      outline,
       placeholder,
       type,
       value
@@ -21,7 +32,10 @@ class Input extends React.Component<IInput, any> {
 
     return (
       <div
-        className="Input--wrapper">
+        className={className({
+          'Input--wrapper': true,
+          'Input--wrapper-outline': outline
+        })}>
         {
           label && <label className="Input--label">{label}</label>
         }
@@ -30,7 +44,7 @@ class Input extends React.Component<IInput, any> {
           placeholder={placeholder}
           disabled={disabled}
           value={value}
-          type={type || 'text'}
+          type={type}
           onChange={onChange || (() => ({}))}/>
       </div>
     );

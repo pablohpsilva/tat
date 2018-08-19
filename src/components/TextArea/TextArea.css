@@ -1,4 +1,4 @@
-.Input--wrapper {
+.TextArea--wrapper {
   background-color: rgba(255, 255, 255, .8);
   display: flex;
   padding: 4px 8px;
@@ -8,18 +8,18 @@
   text-align: left;
 }
 
-.Input--wrapper-outline {
+.TextArea--wrapper-outline {
   border: 1px solid rgba(0, 0, 0, 1);
 }
 
-.Input--label {
+.TextArea--label {
   font-size: 10px;
   font-weight: 500;
   margin-bottom: 8px;
   text-transform: uppercase;
 }
 
-.Input--text {
+.TextArea--text {
   background-color: transparent;
   border: none;
   font-family: Montserrat;

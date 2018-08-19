@@ -9,6 +9,26 @@
   text-transform: uppercase;
 }
 
+.Button--wrapper-outline {
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 2px;
+}
+
+.Button--wrapper-block {
+  min-width: 300px;
+  width: 100%;
+}
+
+.Button--wrapper-disabled {
+  background-color: transparent;
+}
+
 .Button--icon {
   height: 100%;
+}
+
+.Button--wrapper-disabled
+.Button--icon {
+  background-color: transparent;
+  opacity: .6;
 }

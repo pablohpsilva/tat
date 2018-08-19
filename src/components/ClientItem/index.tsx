@@ -8,6 +8,8 @@ import IClientItem from './IClientItem'
 
 import './ClientItem.css'
 
+import buttonVisibleImage from '../../static/img/visible.svg'
+
 class ClientItem extends React.PureComponent<IClientItem, any> {
   public render () {
     const {
@@ -51,7 +53,10 @@ class ClientItem extends React.PureComponent<IClientItem, any> {
         <div
           className="ClientItem--actions">
           <Button
-            onClick={onClick}/>
+            onClick={onClick}
+            loader={true}
+            icon={true}
+            value={buttonVisibleImage} />
         </div>
       </div>
     )

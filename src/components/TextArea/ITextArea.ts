@@ -1,4 +1,4 @@
-export default interface IInput {
+export default interface ITextArea {
   readonly placeholder?: string,
   readonly label?: string,
   onBlur?: () => void,
@@ -6,6 +6,5 @@ export default interface IInput {
   onFocus?: () => void,
   outline?: boolean,
   readonly disabled?: boolean,
-  value?: any,
-  type?: string
+  value?: any
 }

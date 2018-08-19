@@ -9,6 +9,7 @@ import loadingPulseImage from '../../static/img/loading.svg'
 
 class Button extends React.PureComponent<IButton, any> {
   public static defaultProps = {
+    block: false,
     clear: false,
     disabled: false,
     icon: false,
@@ -41,7 +42,8 @@ class Button extends React.PureComponent<IButton, any> {
 
   public handleClick () {
     const { loader, onClick } = this.props
-    if (onClick) {
+    const { showLoader } = this.state
+    if (onClick && !showLoader) {
       if (loader) {
         this.emitLoader()
         return onClick(this.dismissLoader)
@@ -61,11 +63,12 @@ class Button extends React.PureComponent<IButton, any> {
 
   public render () {
     const {
-      // clear,
-      // disabled,
+      block,
+      clear,
+      disabled,
       children,
       icon,
-      // outline,
+      outline,
       loader,
       value
     } = this.props
@@ -88,8 +91,14 @@ class Button extends React.PureComponent<IButton, any> {
     return (
       <button
         id={id}
+        disabled={disabled}
         className={className({
-          'Button--wrapper': true
+          'Button--wrapper': true,
+          'Button--wrapper-block': block,
+          'Button--wrapper-clear': clear,
+          'Button--wrapper-disabled': disabled,
+          'Button--wrapper-icon': icon,
+          'Button--wrapper-outline': outline,
         })}
         style={{
           width: width || 'auto'
