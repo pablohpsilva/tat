@@ -1,0 +1,28 @@
+.Menu--wrapper {
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, .36);
+  margin-bottom: 8px;
+  min-width: 150px;
+  padding: 4px 0px;
+  width: 200px;
+  transition: all .36s ease;
+}
+
+.Menu--wrapper
+.MenuItem--wrapper:hover,
+.Menu--wrapper-zebra
+.MenuItem--wrapper:nth-child(even):hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.Menu--wrapper-separator
+.MenuItem--wrapper:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, .09);
+}
+
+.Menu--wrapper-zebra
+.MenuItem--wrapper:nth-child(even) {
+  background-color: rgba(0, 0, 0, .036);
+  border: none;
+}

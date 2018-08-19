@@ -5,6 +5,7 @@
   flex-direction: column;
   font-family: Montserrat;
   justify-content: flex-start;
+  position: relative;
   text-align: left;
 }
 
@@ -26,4 +27,13 @@
   font-weight: 300;
   font-size: 12px;
   outline: none;
+}
+
+.Input--clearAble {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 7px);
+  transform: rotate(45deg);
+  width: 14px;
 }

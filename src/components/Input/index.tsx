@@ -1,12 +1,14 @@
 import className from 'classnames'
 import * as React from 'react'
 
+import closeImage from '../../static/img/add.svg'
 import IInput from './IInput'
 
 import './Input.css'
 
 class Input extends React.Component<IInput, any> {
   public static defaultProps = {
+    clearAble: false,
     disabled: false,
     label: '',
     outline: false,
@@ -17,13 +19,32 @@ class Input extends React.Component<IInput, any> {
 
   constructor (props: IInput) {
     super(props)
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  public handleChange(value: string | number) {
+    const { onChange } = this.props
+    if (onChange) {
+      onChange(value || '')
+    }
+  }
+
+  public handleClick() {
+    this.handleChange('')
+  }
+
+  public handleInputChange({ target: { value } }: { target: { value: string | number } }) {
+    this.handleChange(value)
   }
 
   public render() {
     const {
+      clearAble,
       disabled,
       label,
-      onChange,
       outline,
       placeholder,
       type,
@@ -37,7 +58,11 @@ class Input extends React.Component<IInput, any> {
           'Input--wrapper-outline': outline
         })}>
         {
-          label && <label className="Input--label">{label}</label>
+          label &&
+            <label
+              className="Input--label">
+              {label}
+            </label>
         }
         <input
           className="Input--text"
@@ -45,7 +70,16 @@ class Input extends React.Component<IInput, any> {
           disabled={disabled}
           value={value}
           type={type}
-          onChange={onChange || (() => ({}))}/>
+          onChange={this.handleInputChange}/>
+
+        {
+          clearAble &&
+            <img
+              onClick={this.handleClick}
+              className="Input--clearAble"
+              src={closeImage}
+              alt="clear input" />
+        }
       </div>
     );
   }

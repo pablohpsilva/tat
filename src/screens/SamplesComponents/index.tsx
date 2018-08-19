@@ -1,9 +1,12 @@
 import * as React from 'react'
 import Button from '../../components/Button'
 import ClientItem from '../../components/ClientItem'
+import ClientList from '../../components/ClientList'
 import ImgRound from '../../components/ImgRound'
 import ImgSquare from '../../components/ImgSquare'
 import Input from '../../components/Input'
+import Menu from '../../components/Menu'
+import MenuItem from '../../components/MenuItem'
 import SlideImg from '../../components/SlideImg'
 import TextArea from '../../components/TextArea'
 import TextTitle from '../../components/TextTitle'
@@ -16,10 +19,15 @@ class SampleComponents extends React.PureComponent<any, any> {
 
     this.state = {
       clients: [
-        { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' }
+        { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
+        { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal2', phone: '34 98888-8888' },
       ],
       fileImg: 'https://i.stack.imgur.com/B1qxgl.png',
       inputVal: '',
+      menu: [
+        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 1' },
+        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 2' },
+      ],
       slides: [
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
@@ -34,7 +42,7 @@ class SampleComponents extends React.PureComponent<any, any> {
     this.handleClickButton = this.handleClickButton.bind(this)
   }
 
-  public handleInputVal({ target: { value: inputVal } }: { target: { value: any } }) {
+  public handleInputVal(inputVal: string | number) {
     this.setState((state: any) => Object.assign({}, state, { inputVal }))
   }
 
@@ -50,7 +58,9 @@ class SampleComponents extends React.PureComponent<any, any> {
   public handleClickButton (callback: () => void) {
     window.setTimeout(() => {
       console.log('oi')
-      callback()
+      if (callback) {
+        callback()
+      }
     }, 1E3)
   }
 
@@ -103,6 +113,14 @@ class SampleComponents extends React.PureComponent<any, any> {
 
         <Input
           disabled={false}
+          outline={true}
+          label="label"
+          value={this.state.inputVal}
+          placeholder="type here"
+          onChange={this.handleInputVal}/>
+
+        <Input
+          clearAble={true}
           outline={true}
           label="label"
           value={this.state.inputVal}
@@ -216,10 +234,19 @@ class SampleComponents extends React.PureComponent<any, any> {
         <hr />
 
         <TextTitle
-          value="ClientList's components:" />
+          value="ClientItem's components:" />
 
         <ClientItem
           {...this.state.clients[0]}/>
+
+        <hr />
+
+        <TextTitle
+          value="ClientList's components:" />
+
+        <ClientList
+          onClick={this.handleClickSlide}
+          items={this.state.clients}/>
 
         <hr />
 
@@ -247,6 +274,46 @@ class SampleComponents extends React.PureComponent<any, any> {
           outline={true}
           onChange={this.handleInputVal}/>
 
+        <hr />
+
+        <TextTitle
+          value="MenuItem's components:" />
+
+        <MenuItem
+          icon={buttonVisibleImage}
+          value="Ver alguma coisa"
+          onClick={this.handleClickButton}/>
+
+        <MenuItem
+          disabled={true}
+          icon={buttonVisibleImage}
+          value="Ver alguma coisa"
+          onClick={this.handleClickButton}/>
+
+        <hr />
+
+        <TextTitle
+          value="Menu's components:" />
+
+        <Menu
+          onClick={this.handleClickSlide}
+          items={this.state.menu}/>
+
+        <Menu
+          onClick={this.handleClickSlide}
+          zebra={true}
+          items={this.state.menu}/>
+
+        <Menu
+          onClick={this.handleClickSlide}
+          separator={true}
+          items={this.state.menu}/>
+
+        <Menu
+          onClick={this.handleClickSlide}
+          separator={true}
+          zebra={true}
+          items={this.state.menu}/>
       </div>
     )
   }

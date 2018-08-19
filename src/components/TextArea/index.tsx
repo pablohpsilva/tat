@@ -16,13 +16,21 @@ class TextArea extends React.Component<ITextArea, any> {
 
   constructor(props: ITextArea) {
     super(props)
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  public handleChange({ target: { value } }: { target: { value: string | number } }) {
+    const { onChange } = this.props
+    if (onChange) {
+      onChange(value || '')
+    }
   }
 
   public render() {
     const {
       disabled,
       label,
-      onChange,
       outline,
       placeholder,
       value
@@ -42,7 +50,7 @@ class TextArea extends React.Component<ITextArea, any> {
           placeholder={placeholder}
           disabled={disabled}
           value={value}
-          onChange={onChange || (() => ({}))}/>
+          onChange={this.handleChange}/>
       </div>
     );
   }

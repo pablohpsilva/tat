@@ -1,0 +1,31 @@
+.MenuItem--wrapper {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  font-family: Montserrat, sans-serif;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.MenuItem--wrapper-disabled,
+.MenuItem--wrapper-disabled
+.MenuItem--icon,
+.MenuItem--wrapper-disabled
+.MenuItem--text {
+  opacity: .6;
+}
+
+.MenuItem--icon {
+  margin-right: 8px;
+  width: 21px;
+}
+
+.MenuItem--text {
+  overflow: hidden;
+  width: calc(100% - calc(8px + 21px));
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+}

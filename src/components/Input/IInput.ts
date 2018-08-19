@@ -1,11 +1,12 @@
 export default interface IInput {
-  readonly placeholder?: string,
+  readonly clearAble?: boolean,
+  readonly disabled?: boolean,
   readonly label?: string,
   onBlur?: () => void,
-  onChange?: ({ target: { value: inputVal } }: { target: { value: any } }) => void,
+  onChange?: (value: string | number) => void,
   onFocus?: () => void,
   outline?: boolean,
-  readonly disabled?: boolean,
+  readonly placeholder?: string,
   value?: any,
   type?: string
 }
