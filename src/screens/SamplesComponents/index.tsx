@@ -7,6 +7,7 @@ import ImgSquare from '../../components/ImgSquare'
 import Input from '../../components/Input'
 import Menu from '../../components/Menu'
 import MenuItem from '../../components/MenuItem'
+import Modal from '../../components/Modal'
 import SlideImg from '../../components/SlideImg'
 import TextArea from '../../components/TextArea'
 import TextTitle from '../../components/TextTitle'
@@ -26,9 +27,13 @@ class SampleComponents extends React.PureComponent<any, any> {
       inputVal: '',
       menu: [
         { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 1' },
-        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 2' },
+        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 2', disabled: true },
+        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 3' },
       ],
+      modalVisible: false,
       slides: [
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
@@ -40,6 +45,12 @@ class SampleComponents extends React.PureComponent<any, any> {
     this.handleInputFile = this.handleInputFile.bind(this)
     this.handleClickSlide = this.handleClickSlide.bind(this)
     this.handleClickButton = this.handleClickButton.bind(this)
+    this.handleModal = this.handleModal.bind(this)
+  }
+
+  public handleModal () {
+    const { modalVisible } = this.state
+    this.setState((state: any) => Object.assign({}, state, { modalVisible: !modalVisible }))
   }
 
   public handleInputVal(inputVal: string | number) {
@@ -314,6 +325,34 @@ class SampleComponents extends React.PureComponent<any, any> {
           separator={true}
           zebra={true}
           items={this.state.menu}/>
+
+        <hr />
+
+        <TextTitle
+          value="Modal's components:" />
+
+        <Button
+          onClick={this.handleModal}
+          icon={true}
+          value={buttonVisibleImage} />
+
+        {
+          this.state.modalVisible &&
+            <Modal
+              show={this.state.modalVisible}>
+              <SlideImg
+                onClick={this.handleClickSlide}
+                images={this.state.slides} />
+
+              <Button
+                onClick={this.handleModal}
+                value="close modal" />
+
+              <Button
+                onClick={this.handleModal}
+                value="close modal" />
+            </Modal>
+        }
       </div>
     )
   }

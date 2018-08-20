@@ -12,7 +12,6 @@
 .MenuItem--wrapper:hover,
 .Menu--wrapper-zebra
 .MenuItem--wrapper:nth-child(even):hover {
-  cursor: pointer;
   background-color: rgba(0, 0, 0, .1);
 }
 

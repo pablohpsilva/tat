@@ -6,7 +6,7 @@ import IInput from './IInput'
 
 import './Input.css'
 
-class Input extends React.Component<IInput, any> {
+class Input extends React.Component<IInput, {}> {
   public static defaultProps = {
     clearAble: false,
     disabled: false,

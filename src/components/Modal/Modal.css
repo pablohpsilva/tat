@@ -1,0 +1,67 @@
+.Modal--wrapper {
+  align-items: center;
+  background-color: rgba(0, 0, 0, .8);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all .36s ease-in;
+}
+
+.Modal--wrapper-visible {
+  opacity: 1;
+}
+
+.Modal--wrapper-noBackdrop {
+  background-color: transparent;
+}
+
+.Modal--wrapper > div {
+  animation: minimize .36s linear;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  max-height: 100vh;
+  max-width: 90vw;
+  min-width: 250px;
+}
+
+.Modal--wrapper > button {
+  color: rgba(255, 255, 255, 1);
+}
+
+.Modal--wrapper.Modal--wrapper-visible > div {
+  animation-name: bounce;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale3d(0.1,0.1,1);
+    /* box-shadow: 0 3px 20px rgba(0,0,0,0.9); */
+  }
+  55% {
+    transform: scale3d(1.08,1.08,1);
+    /* box-shadow: 0 10px 20px rgba(0,0,0,0); */
+  }
+  75% {
+    transform: scale3d(0.95,0.95,1);
+    /* box-shadow: 0 0 20px rgba(0,0,0,0.9); */
+  }
+  100% {
+    transform: scale3d(1,1,1);
+    /* box-shadow: 0 3px 20px rgba(0,0,0,0.9); */
+  }
+}
+
+@keyframes minimise {
+  0% {
+    transform: scale3d(1,1,1);
+  }
+  100% {
+    transform: scale3d(0.1,0.1,1);
+  }
+}

@@ -2,6 +2,7 @@
   align-items: center;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   display: flex;
   font-family: Montserrat, sans-serif;
   padding: 4px 8px;
@@ -9,11 +10,10 @@
   width: 100%;
 }
 
-.MenuItem--wrapper-disabled,
-.MenuItem--wrapper-disabled
-.MenuItem--icon,
-.MenuItem--wrapper-disabled
-.MenuItem--text {
+button.MenuItem--wrapper.MenuItem--wrapper-disabled {
+  cursor: not-allowed;
+}
+button.MenuItem--wrapper.MenuItem--wrapper-disabled > * {
   opacity: .6;
 }
 
