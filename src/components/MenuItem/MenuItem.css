@@ -5,6 +5,7 @@
   cursor: pointer;
   display: flex;
   font-family: Montserrat, sans-serif;
+  outline: none;
   padding: 4px 8px;
   text-transform: uppercase;
   width: 100%;

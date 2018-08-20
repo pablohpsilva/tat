@@ -12,6 +12,7 @@ import SlideImg from '../../components/SlideImg'
 import TextArea from '../../components/TextArea'
 import TextTitle from '../../components/TextTitle'
 
+import closeImage from '../../static/img/add.svg'
 import buttonVisibleImage from '../../static/img/visible.svg'
 
 class SampleComponents extends React.PureComponent<any, any> {
@@ -340,6 +341,15 @@ class SampleComponents extends React.PureComponent<any, any> {
           this.state.modalVisible &&
             <Modal
               show={this.state.modalVisible}>
+              <Button
+                className="Modal--wrapper-close"
+                style={{
+                  transform: 'rotate(45deg)'
+                }}
+                onClick={this.handleModal}
+                icon={true}
+                value={closeImage} />
+
               <SlideImg
                 onClick={this.handleClickSlide}
                 images={this.state.slides} />

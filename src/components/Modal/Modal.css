@@ -30,12 +30,15 @@
   min-width: 250px;
 }
 
-.Modal--wrapper > button {
-  color: rgba(255, 255, 255, 1);
-}
-
 .Modal--wrapper.Modal--wrapper-visible > div {
   animation-name: bounce;
+}
+
+.Modal--wrapper-close {
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  right: 8px;
+  top: 8px;
 }
 
 @keyframes bounce {

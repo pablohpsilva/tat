@@ -23,5 +23,4 @@
 .Menu--wrapper-zebra
 .MenuItem--wrapper:nth-child(even) {
   background-color: rgba(0, 0, 0, .036);
-  border: none;
 }

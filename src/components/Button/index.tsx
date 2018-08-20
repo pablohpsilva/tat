@@ -64,12 +64,14 @@ class Button extends React.PureComponent<IButton, any> {
   public render () {
     const {
       block,
+      className: compClassName,
       clear,
       disabled,
       children,
       icon,
-      outline,
       loader,
+      outline,
+      style,
       value
     } = this.props
 
@@ -92,17 +94,24 @@ class Button extends React.PureComponent<IButton, any> {
       <button
         id={id}
         disabled={disabled}
-        className={className({
-          'Button--wrapper': true,
-          'Button--wrapper-block': block,
-          'Button--wrapper-clear': clear,
-          'Button--wrapper-disabled': disabled,
-          'Button--wrapper-icon': icon,
-          'Button--wrapper-outline': outline,
-        })}
-        style={{
-          width: width || 'auto'
-        }}
+        className={className(
+          compClassName,
+          {
+            'Button--wrapper': true,
+            'Button--wrapper-block': block,
+            'Button--wrapper-clear': clear,
+            'Button--wrapper-disabled': disabled,
+            'Button--wrapper-icon': icon,
+            'Button--wrapper-outline': outline,
+          })}
+        style={
+          Object.assign(
+            {
+              width: width || 'auto'
+            },
+            style
+          )
+        }
         onClick={this.handleClick}>
         {
           (loader && showLoader)
