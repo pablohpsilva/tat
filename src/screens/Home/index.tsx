@@ -1,12 +1,18 @@
 import * as React from 'react'
-import Button from '../../components/Button'
 import Chart from '../../components/Chart'
 import ClientList from '../../components/ClientList'
+import MenuButton from '../../components/MenuButton'
+import MenuItem from '../../components/MenuItem'
 import SlideImg from '../../components/SlideImg'
 import TextTitle from '../../components/TextTitle'
 import Toolbar from '../../components/Toolbar'
 
+import addIcon from '../../static/img/add_black.svg'
+import contractIcon from '../../static/img/contract.svg'
+import homeIcon from '../../static/img/home.svg'
+import likeIcon from '../../static/img/like.svg'
 import moreIcon from '../../static/img/more.svg'
+import usersIcon from '../../static/img/users.svg'
 
 import './Home.css'
 class Home extends React.Component<{}, any> {
@@ -25,9 +31,11 @@ class Home extends React.Component<{}, any> {
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal2', phone: '34 98888-8888' },
       ],
       menu: [
-        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 1' },
-        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 2', disabled: true },
-        { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 3' },
+        { icon: homeIcon, value: 'home' },
+        { icon: addIcon, value: 'criar nova tattoo' },
+        { icon: usersIcon, value: 'clientes' },
+        { icon: contractIcon, value: 'contratos' },
+        { icon: likeIcon, value: 'historico' },
       ],
       slides: [
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
@@ -55,20 +63,23 @@ class Home extends React.Component<{}, any> {
       <div
         className="Home--wrapper">
         <Toolbar>
-          <Button
-            icon={true}
+          <MenuButton
+            icon={moreIcon}
             noBounds={true}
-            onClick={this.handleOnClick}
-            value={moreIcon} />
+            offsetX="calc(100vw - 228px)"
+            offsetY="24px">
+            <div>
+              {
+                this.state.menu.map((item: any, index: number) => (
+                  <MenuItem
+                    key={`MenuItem-${index}`}
+                    {...item} />
+                ))
+              }
+            </div>
+          </MenuButton>
         </Toolbar>
-        {/* <div
-          className="Home--toolbar">
-          <Button
-            icon={true}
-            noBounds={true}
-            onClick={this.handleOnClick}
-            value={moreIcon}/>
-        </div> */}
+
         <TextTitle
           value="Resumo/mês"/>
         <TextTitle

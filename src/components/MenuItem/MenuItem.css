@@ -19,7 +19,7 @@ button.MenuItem--wrapper.MenuItem--wrapper-disabled > * {
 }
 
 .MenuItem--icon {
-  margin-right: 8px;
+  margin-right: 16px;
   width: 21px;
 }
 

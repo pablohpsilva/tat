@@ -7,6 +7,7 @@
   justify-content: flex-start;
   margin: 0;
   margin-bottom: 8px;
+  min-height: 42px;
   position: relative;
   text-align: left;
 }
@@ -25,10 +26,12 @@
 .Input--text {
   background-color: transparent;
   border: none;
+  flex: 1;
   font-family: Montserrat;
   font-weight: 300;
   font-size: 12px;
   outline: none;
+  text-transform: uppercase;
 }
 
 .Input--clearAble {

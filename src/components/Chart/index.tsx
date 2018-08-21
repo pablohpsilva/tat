@@ -12,6 +12,8 @@ import IChart from './IChart'
 
 import './Chart.css'
 
+const documentWidth = document.documentElement.offsetWidth
+
 class Chart extends React.Component<IChart, {}> {
   public static defaultProps = {
     data: [
@@ -26,8 +28,9 @@ class Chart extends React.Component<IChart, {}> {
     dataKey: 'name',
     height: 200,
     margin: { top: 10, right: 14, left: 14, bottom: 0 },
-    width: 360,
+    width: documentWidth || 360,
   }
+
   public render () {
     const {
       data,

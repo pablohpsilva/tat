@@ -103,6 +103,17 @@ class SampleComponents extends React.PureComponent<any, any> {
           label="label"/>
 
         <Input
+          outline={true}
+          label="label"/>
+
+        <Input
+          placeholder="label"/>
+
+        <Input
+          outline={true}
+          placeholder="label"/>
+
+        <Input
           label="label"
           placeholder="placeholder"/>
 

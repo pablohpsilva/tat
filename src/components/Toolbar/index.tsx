@@ -32,7 +32,10 @@ class Toolbar extends React.PureComponent<IToolbar, any> {
   }
 
   public render () {
-    const { children } = this.props
+    const {
+      children,
+      left
+    } = this.props
 
     return (
       <div
@@ -43,6 +46,7 @@ class Toolbar extends React.PureComponent<IToolbar, any> {
           className={className({
             'Toolbar--content': true,
             'Toolbar--content-addShadow': this.state.addShadow,
+            'Toolbar--content-left': left,
           })}>
           {
             children

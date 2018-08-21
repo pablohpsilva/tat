@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import './App.css';
 // import './config/firebase.config'
 
+import Clients from './screens/Clients'
 import Home from './screens/Home'
 import Login from './screens/Login'
 import SComp from './screens/SamplesComponents'
@@ -16,6 +17,9 @@ class App extends React.Component {
           <Route
             path="/login"
             component={Login} />
+          <Route
+            path="/clients"
+            component={Clients} />
           <Route
             path="/extra"
             component={SComp} />

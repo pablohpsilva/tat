@@ -58,6 +58,7 @@ class MenuButton extends React.PureComponent<IMenuButton, any> {
     const {
       children,
       icon,
+      noBounds,
       offsetX,
       offsetY
     } = this.props
@@ -74,6 +75,7 @@ class MenuButton extends React.PureComponent<IMenuButton, any> {
           id={id}
           icon={true}
           onClick={this.handleMenuVisibility}
+          noBounds={noBounds}
           value={icon} />
         {
           active &&

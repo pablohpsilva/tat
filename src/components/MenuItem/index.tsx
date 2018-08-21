@@ -48,7 +48,7 @@ class MenuItem extends React.PureComponent<IMenuItem, any> {
           alt={`item ${value}`}/>
         <span
           className="MenuItem--text">
-          value
+          { value }
         </span>
       </button>
     )

@@ -38,22 +38,20 @@ class Menu extends React.Component<IMenu, any> {
         offsetX,
         offsetY
       } = this.props
-      const documentHeight = document.documentElement.offsetHeight
+      // const documentHeight = document.documentElement.offsetHeight
       this.getMenu().addEventListener('click', this.props.onClick)
-      this.getMenuElement().style.left = `${offsetX}px`
-      this.getMenuElement().style.bottom = `${documentHeight - offsetY}px`
+      this.getMenuElement().style.left = `${offsetX}`
+      this.getMenuElement().style.top = `${offsetY}`
     }, 0)
   }
 
   public getMenu (): HTMLElement {
-    const element: HTMLElement = document.querySelector('.Menu--wrapper') as HTMLElement
-    console.log(element)
+    const element: HTMLElement = document.querySelector('.Menu--backdrop') as HTMLElement
     return element || this.root
   }
 
   public getMenuElement (): HTMLElement {
-    const element: HTMLElement = document.querySelector('.Menu--wrapper > div') as HTMLElement
-    console.log(element)
+    const element: HTMLElement = document.querySelector('.Menu--wrapper > div:not(.Menu--backdrop)') as HTMLElement
     return element || this.root
   }
 
@@ -87,6 +85,11 @@ class Menu extends React.Component<IMenu, any> {
       'Menu--wrapper-visible': active,
       'Menu--wrapper-zebra': zebra,
     }))
+
+    const backdrop = document.createElement('div')
+    backdrop.setAttribute('class', 'Menu--backdrop')
+
+    this.root.appendChild(backdrop)
 
     return active && ReactDOM.createPortal(
       // Any valid React child: JSX, strings, arrays, etc.
