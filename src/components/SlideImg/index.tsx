@@ -11,6 +11,7 @@ import './SlideImg.css'
 class SlideImg extends React.PureComponent<ISlideImg, any> {
   public static defaultProps = {
     images: [],
+    noDataText: 'No data found',
     note: false,
     subtitle: false,
     title: ''
@@ -26,8 +27,9 @@ class SlideImg extends React.PureComponent<ISlideImg, any> {
   public render () {
     const {
       images,
-      title,
+      noDataText,
       note,
+      title,
       subtitle,
     } = this.props
 
@@ -42,12 +44,19 @@ class SlideImg extends React.PureComponent<ISlideImg, any> {
               subtitle={subtitle}/>
           }
         {
-          images.map((img: IImgSquare, index: number) => (
-            <ImgSquare
-              key={`imgSquare-${index}`}
-              onClick={this.handleImgSquareClick(img, index)}
-              {...img} />
-          ))
+          (images && images.length)
+            ? images.map((img: IImgSquare, index: number) => (
+              <ImgSquare
+                key={`imgSquare-${index}`}
+                onClick={this.handleImgSquareClick(img, index)}
+                {...img} />
+            ))
+            : (
+              <div
+                className="SlideImg--noData">
+                <span>{noDataText}</span>
+              </div>
+            )
         }
       </div>
     )

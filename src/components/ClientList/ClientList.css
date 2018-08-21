@@ -2,3 +2,14 @@
 .ClientItem--wrapper:nth(n*2) {
   background-color: #F8F8F8;
 }
+
+.ClientList--noData {
+  align-items: center;
+  color: rgba(0, 0, 0, .36);
+  display: flex;
+  font-family: Montserrat, sans-serif;
+  justify-content: center;
+  min-height: 100px;
+  text-align: center;
+  text-transform: uppercase;
+}

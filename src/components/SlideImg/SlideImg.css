@@ -8,3 +8,15 @@
 .ImgSquare--wrapper:not(:last-child) {
   margin-right: 16px;
 }
+
+.SlideImg--noData {
+  align-items: center;
+  color: rgba(0, 0, 0, .36);
+  display: flex;
+  flex: 1;
+  font-family: Montserrat, sans-serif;
+  justify-content: center;
+  min-height: 100px;
+  text-align: center;
+  text-transform: uppercase;
+}

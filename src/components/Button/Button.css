@@ -29,6 +29,11 @@
   height: 100%;
 }
 
+.Button--wrapper-noBounds {
+  width: auto;
+  min-width: 0;
+}
+
 .Button--wrapper-disabled
 .Button--icon {
   background-color: transparent;

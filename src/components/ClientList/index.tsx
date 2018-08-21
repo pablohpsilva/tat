@@ -11,6 +11,7 @@ import './ClientList.css'
 class ClientList extends React.PureComponent<IClientList, any> {
   public static defaultProps = {
     items: [],
+    noDataText: 'No data found',
     note: false,
     subtitle: false,
     title: ''
@@ -26,9 +27,10 @@ class ClientList extends React.PureComponent<IClientList, any> {
   public render() {
     const {
       items,
-      title,
+      noDataText,
       note,
       subtitle,
+      title,
     } = this.props
 
     return (
@@ -42,12 +44,19 @@ class ClientList extends React.PureComponent<IClientList, any> {
             subtitle={subtitle} />
         }
         {
-          items.map((item: IClientItem, index: number) => (
-            <ClientItem
-              key={`ClientItem-${index}`}
-              onClick={this.handleClientItemClick(item, index)}
-              {...item} />
-          ))
+          (items && items.length)
+            ? items.map((item: IClientItem, index: number) => (
+              <ClientItem
+                key={`ClientItem-${index}`}
+                onClick={this.handleClientItemClick(item, index)}
+                {...item} />
+            ))
+            : (
+              <div
+                className="ClientList--noData">
+                <span>{ noDataText }</span>
+              </div>
+            )
         }
       </div>
     )

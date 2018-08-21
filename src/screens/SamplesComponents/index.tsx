@@ -260,6 +260,10 @@ class SampleComponents extends React.PureComponent<any, any> {
           onClick={this.handleClickSlide}
           items={this.state.clients}/>
 
+        <ClientList
+          onClick={this.handleClickSlide}
+          items={[]}/>
+
         <hr />
 
         <TextTitle

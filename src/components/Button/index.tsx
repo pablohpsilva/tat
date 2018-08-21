@@ -14,6 +14,7 @@ class Button extends React.PureComponent<IButton, any> {
     disabled: false,
     icon: false,
     loader: false,
+    noBounds: false,
     outline: false,
     value: ''
   }
@@ -54,8 +55,9 @@ class Button extends React.PureComponent<IButton, any> {
   }
 
   public componentDidMount () {
+    const { loader } = this.props
     const button = document.querySelector(`#${this.state.id}`)
-    if (button) {
+    if (button && loader) {
       const width = button.getBoundingClientRect().width
       this.setState((state: any) => Object.assign({}, state, { width }))
     }
@@ -70,6 +72,7 @@ class Button extends React.PureComponent<IButton, any> {
       children,
       icon,
       loader,
+      noBounds,
       outline,
       style,
       value
@@ -102,6 +105,7 @@ class Button extends React.PureComponent<IButton, any> {
             'Button--wrapper-clear': clear,
             'Button--wrapper-disabled': disabled,
             'Button--wrapper-icon': icon,
+            'Button--wrapper-noBounds': noBounds,
             'Button--wrapper-outline': outline,
           })}
         style={
