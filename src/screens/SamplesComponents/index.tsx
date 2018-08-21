@@ -5,7 +5,8 @@ import ClientList from '../../components/ClientList'
 import ImgRound from '../../components/ImgRound'
 import ImgSquare from '../../components/ImgSquare'
 import Input from '../../components/Input'
-import Menu from '../../components/Menu'
+// import Menu from '../../components/Menu'
+import MenuButton from '../../components/MenuButton'
 import MenuItem from '../../components/MenuItem'
 import Modal from '../../components/Modal'
 import SlideImg from '../../components/SlideImg'
@@ -311,25 +312,83 @@ class SampleComponents extends React.PureComponent<any, any> {
         <TextTitle
           value="Menu's components:" />
 
-        <Menu
-          onClick={this.handleClickSlide}
-          items={this.state.menu}/>
+        <MenuButton
+          icon={buttonVisibleImage}>
+          <div>
+            <MenuItem
+              icon={buttonVisibleImage}
+              value="Ver alguma coisa"
+              onClick={this.handleClickButton} />
 
-        <Menu
-          onClick={this.handleClickSlide}
+            <MenuItem
+              disabled={true}
+              icon={buttonVisibleImage}
+              value="Ver alguma coisa"
+              onClick={this.handleClickButton} />
+          </div>
+        </MenuButton>
+
+        {/* <Menu
+          active={true}>
+          <div>
+            <MenuItem
+              icon={buttonVisibleImage}
+              value="Ver alguma coisa"
+              onClick={this.handleClickButton} />
+
+            <MenuItem
+              disabled={true}
+              icon={buttonVisibleImage}
+              value="Ver alguma coisa"
+              onClick={this.handleClickButton} />
+          </div>
+        </Menu> */}
+
+        {/* <Menu
           zebra={true}
-          items={this.state.menu}/>
+          active={true}>
+          <MenuItem
+            icon={buttonVisibleImage}
+            value="Ver alguma coisa"
+            onClick={this.handleClickButton}/>
+
+          <MenuItem
+            disabled={true}
+            icon={buttonVisibleImage}
+            value="Ver alguma coisa"
+            onClick={this.handleClickButton}/>
+        </Menu>
 
         <Menu
-          onClick={this.handleClickSlide}
           separator={true}
-          items={this.state.menu}/>
+          active={true}>
+          <MenuItem
+            icon={buttonVisibleImage}
+            value="Ver alguma coisa"
+            onClick={this.handleClickButton}/>
+
+          <MenuItem
+            disabled={true}
+            icon={buttonVisibleImage}
+            value="Ver alguma coisa"
+            onClick={this.handleClickButton}/>
+        </Menu>
 
         <Menu
-          onClick={this.handleClickSlide}
           separator={true}
           zebra={true}
-          items={this.state.menu}/>
+          active={true}>
+          <MenuItem
+            icon={buttonVisibleImage}
+            value="Ver alguma coisa"
+            onClick={this.handleClickButton}/>
+
+          <MenuItem
+            disabled={true}
+            icon={buttonVisibleImage}
+            value="Ver alguma coisa"
+            onClick={this.handleClickButton}/>
+        </Menu> */}
 
         <hr />
 

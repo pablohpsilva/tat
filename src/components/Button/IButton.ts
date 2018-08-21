@@ -4,6 +4,7 @@ export default interface IButton {
   clear: boolean,
   disabled: boolean,
   icon: boolean,
+  id?: string,
   loader: boolean,
   onClick: (callback: () => void) => void,
   noBounds: boolean,

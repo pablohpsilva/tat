@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
 // import MenuItem from '../MenuItem'
-import IMenuItem from '../MenuItem/IMenuItem'
+// import IMenuItem from '../MenuItem/IMenuItem'
 import IMenu from './IMenu'
 
 import './Menu.css'
@@ -12,43 +12,56 @@ const menuRoot = document.querySelector('#menu-root')
 
 class Menu extends React.Component<IMenu, any> {
   public static defaultProps = {
-    items: [],
+    // items: [],
+    offsetX: 0,
+    offsetY: 0,
+    onClick: () => { console.log(1) },
     separator: false,
     zebra: false
   }
 
   private root: HTMLElement
-  private content: HTMLElement
 
   constructor(props: IMenu) {
     super(props);
 
-    this.state = {
-      active: false
-    }
-
     this.root = document.createElement('div')
-    this.content = document.createElement('div')
 
-    this.handleClick = this.handleClick.bind(this)
-    this.handleMenuVisibility = this.handleMenuVisibility.bind(this)
+    this.getMenu = this.getMenu.bind(this)
+    this.getMenuElement = this.getMenuElement.bind(this)
+    this.setInnerMenuAttributes = this.setInnerMenuAttributes.bind(this)
   }
 
-  public handleClick = (item: IMenuItem, index: number) => () => {
-    const { onClick } = this.props
-    if (onClick) {
-      onClick(item, index)
-    }
+  public setInnerMenuAttributes () {
+    window.setTimeout(() => {
+      const {
+        offsetX,
+        offsetY
+      } = this.props
+      const documentHeight = document.documentElement.offsetHeight
+      this.getMenu().addEventListener('click', this.props.onClick)
+      this.getMenuElement().style.left = `${offsetX}px`
+      this.getMenuElement().style.bottom = `${documentHeight - offsetY}px`
+    }, 0)
   }
 
-  public handleMenuVisibility () {
-    this.setState((state: any) => Object.assign({}, state, { active: !state.active }))
+  public getMenu (): HTMLElement {
+    const element: HTMLElement = document.querySelector('.Menu--wrapper') as HTMLElement
+    console.log(element)
+    return element || this.root
+  }
+
+  public getMenuElement (): HTMLElement {
+    const element: HTMLElement = document.querySelector('.Menu--wrapper > div') as HTMLElement
+    console.log(element)
+    return element || this.root
   }
 
   public componentDidMount() {
     // Append the element into the DOM on mount. We'll render
     // into the modal container element (see the HTML tab).
     if (menuRoot) {
+      this.setInnerMenuAttributes()
       menuRoot.appendChild(this.root)
     }
   }
@@ -56,29 +69,24 @@ class Menu extends React.Component<IMenu, any> {
   public componentWillUnmount() {
     // Remove the element from the DOM when we unmount
     if (menuRoot) {
+      this.getMenuElement().removeEventListener('click', () => ({}))
       menuRoot.removeChild(this.root)
     }
   }
 
   public render () {
     const {
+      active,
       separator,
       zebra
     } = this.props
 
-    const { active } = this.state
-
     this.root.setAttribute('class', className({
-      'Menu--wrapper': true
+      'Menu--wrapper': true,
+      'Menu--wrapper-separator': separator,
+      'Menu--wrapper-visible': active,
+      'Menu--wrapper-zebra': zebra,
     }))
-
-    this.content.setAttribute('class', className({
-      'Menu--content': true,
-      'Menu--content-separator': separator,
-      'Menu--content-zebra': zebra,
-    }))
-
-    this.root.appendChild(this.content)
 
     return active && ReactDOM.createPortal(
       // Any valid React child: JSX, strings, arrays, etc.
@@ -86,24 +94,6 @@ class Menu extends React.Component<IMenu, any> {
       // A DOM element
       this.root,
     )
-
-    // return (
-    //   <div
-    //     className={className({
-    //       'Menu--wrapper': true,
-    //       'Menu--wrapper-separator': separator,
-    //       'Menu--wrapper-zebra': zebra,
-    //     })}>
-    //     {
-    //       items.map((item: IMenuItem, index: number) => (
-    //         <MenuItem
-    //           key={`menuItem-${index}`}
-    //           onClick={this.handleClick(item, index)}
-    //           {...item}/>
-    //       ))
-    //     }
-    //   </div>
-    // )
   }
 }
 

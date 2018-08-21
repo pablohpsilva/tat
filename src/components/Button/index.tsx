@@ -71,6 +71,7 @@ class Button extends React.PureComponent<IButton, any> {
       disabled,
       children,
       icon,
+      id,
       loader,
       noBounds,
       outline,
@@ -79,7 +80,7 @@ class Button extends React.PureComponent<IButton, any> {
     } = this.props
 
     const {
-      id,
+      id: internalId,
       showLoader,
       width
     } = this.state
@@ -95,7 +96,7 @@ class Button extends React.PureComponent<IButton, any> {
 
     return (
       <button
-        id={id}
+        id={id || internalId}
         disabled={disabled}
         className={className(
           compClassName,
