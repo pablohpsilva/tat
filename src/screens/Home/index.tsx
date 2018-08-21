@@ -4,6 +4,7 @@ import Chart from '../../components/Chart'
 import ClientList from '../../components/ClientList'
 import SlideImg from '../../components/SlideImg'
 import TextTitle from '../../components/TextTitle'
+import Toolbar from '../../components/Toolbar'
 
 import moreIcon from '../../static/img/more.svg'
 
@@ -18,6 +19,9 @@ class Home extends React.Component<{}, any> {
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
+        { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
+        { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
+        { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal2', phone: '34 98888-8888' },
       ],
       menu: [
@@ -26,6 +30,10 @@ class Home extends React.Component<{}, any> {
         { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 3' },
       ],
       slides: [
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
+        { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
@@ -46,14 +54,21 @@ class Home extends React.Component<{}, any> {
     return (
       <div
         className="Home--wrapper">
-        <div
+        <Toolbar>
+          <Button
+            icon={true}
+            noBounds={true}
+            onClick={this.handleOnClick}
+            value={moreIcon} />
+        </Toolbar>
+        {/* <div
           className="Home--toolbar">
           <Button
             icon={true}
             noBounds={true}
             onClick={this.handleOnClick}
             value={moreIcon}/>
-        </div>
+        </div> */}
         <TextTitle
           value="Resumo/mês"/>
         <TextTitle
