@@ -5,6 +5,8 @@
   flex-direction: column;
   font-family: Montserrat;
   justify-content: flex-start;
+  margin: 0;
+  margin-bottom: 8px;
   position: relative;
   text-align: left;
 }

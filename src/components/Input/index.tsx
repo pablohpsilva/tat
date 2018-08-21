@@ -47,6 +47,7 @@ class Input extends React.Component<IInput, {}> {
       label,
       outline,
       placeholder,
+      style,
       type,
       value
     } = this.props
@@ -56,7 +57,8 @@ class Input extends React.Component<IInput, {}> {
         className={className({
           'Input--wrapper': true,
           'Input--wrapper-outline': outline
-        })}>
+        })}
+        style={style}>
         {
           label &&
             <label

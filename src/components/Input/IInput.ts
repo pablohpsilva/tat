@@ -7,6 +7,7 @@ export default interface IInput {
   onFocus?: () => void,
   outline?: boolean,
   readonly placeholder?: string,
+  style?: object,
   value?: any,
   type?: string
 }

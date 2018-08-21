@@ -33,6 +33,7 @@ class TextTitle extends React.PureComponent<ITextTitle, any> {
       invert,
       note,
       subtitle,
+      style,
       value
     } = this.props
 
@@ -40,6 +41,7 @@ class TextTitle extends React.PureComponent<ITextTitle, any> {
 
     return (
       <HTMLTag
+        style={style}
         className={
           classNames({
             'TextTitle--wrapper': true,

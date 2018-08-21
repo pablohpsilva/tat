@@ -4,6 +4,7 @@ import './App.css';
 // import './config/firebase.config'
 
 import Home from './screens/Home'
+import Login from './screens/Login'
 import SComp from './screens/SamplesComponents'
 
 class App extends React.Component {
@@ -13,11 +14,14 @@ class App extends React.Component {
         className="App">
         <Switch>
           <Route
-            path="/"
-            component={Home}/>
+            path="/login"
+            component={Login} />
           <Route
             path="/extra"
-            component={SComp}/>
+            component={SComp} />
+          <Route
+            path="/"
+            component={Home}/>
         </Switch>
       </div>
     );
