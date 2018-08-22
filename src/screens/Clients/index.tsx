@@ -1,9 +1,13 @@
 import * as Fuse from 'fuse.js'
 import * as React from 'react'
+// import { Link } from 'react-router-dom'
+import Button from '../../components/Button'
 import ClientList from '../../components/ClientList'
 import Input from '../../components/Input'
 import TextTitle from '../../components/TextTitle'
 import Toolbar from '../../components/Toolbar'
+
+import backIcon from '../../static/img/back.svg'
 
 const clients: object[] = []
 for(let i = 0; i < 40; i += 1) {
@@ -72,10 +76,15 @@ class Clients extends React.Component<{}, any> {
 
     return (
       <div
-        className="Home--wrapper">
+        className="Clients--wrapper">
         <Toolbar
           left={true}>
-          voltar
+          <Button
+            icon={true}
+            noBounds={true}
+            value={backIcon}
+            to="/"
+            onClick={this.handleOnClick}/>
         </Toolbar>
 
         <TextTitle

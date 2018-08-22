@@ -1,5 +1,6 @@
 import className from 'classnames'
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 
 import IButton from './IButton'
 
@@ -76,6 +77,7 @@ class Button extends React.PureComponent<IButton, any> {
       noBounds,
       outline,
       style,
+      to,
       value
     } = this.props
 
@@ -94,10 +96,15 @@ class Button extends React.PureComponent<IButton, any> {
         ? value
         : children
 
+    const Component = to
+      ? Link
+      : 'button'
+
     return (
-      <button
+      <Component
         id={id || internalId}
         disabled={disabled}
+        to={to}
         className={className(
           compClassName,
           {
@@ -126,7 +133,7 @@ class Button extends React.PureComponent<IButton, any> {
                 alt="here" />
             : content
         }
-      </button>
+      </Component>
     )
   }
 }

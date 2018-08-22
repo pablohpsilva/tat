@@ -8,7 +8,7 @@ import ISlideImg from './ISlideImg'
 
 import './SlideImg.css'
 
-class SlideImg extends React.PureComponent<ISlideImg, any> {
+class SlideImg extends React.Component<ISlideImg, any> {
   public static defaultProps = {
     images: [],
     noDataText: 'No data found',
@@ -17,10 +17,10 @@ class SlideImg extends React.PureComponent<ISlideImg, any> {
     title: ''
   }
 
-  public handleImgSquareClick = (img: IImgSquare, index: number) => () => {
+  public handleImgSquareClick = (img: IImgSquare, index: number) => (result: any) => {
     const { onClick } = this.props
     if (onClick) {
-      onClick(img, index)
+      onClick(img, index, result)
     }
   }
 

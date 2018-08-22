@@ -1,0 +1,29 @@
+.Signature--wrapper {
+  background-color: rgba(255, 255, 255, .8);
+  display: flex;
+  padding: 4px 8px;
+  flex-direction: column;
+  font-family: Montserrat;
+  justify-content: flex-start;
+  margin: 0;
+  margin-bottom: 8px;
+  min-height: 42px;
+  position: relative;
+  text-align: left;
+}
+
+.Signature--wrapper-outline {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.Signature--empty {
+  display: block;
+  min-height: 30px;
+}
+
+.Signature--label {
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}

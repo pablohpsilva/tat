@@ -10,5 +10,6 @@ export default interface IButton {
   noBounds: boolean,
   outline: boolean,
   style?: object,
+  to?: string,
   value: string,
 }

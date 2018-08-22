@@ -9,6 +9,7 @@ import Input from '../../components/Input'
 import MenuButton from '../../components/MenuButton'
 import MenuItem from '../../components/MenuItem'
 import Modal from '../../components/Modal'
+import Signature from '../../components/Signature'
 import SlideImg from '../../components/SlideImg'
 import TextArea from '../../components/TextArea'
 import TextTitle from '../../components/TextTitle'
@@ -33,6 +34,7 @@ class SampleComponents extends React.PureComponent<any, any> {
         { icon: 'https://i.stack.imgur.com/B1qxgl.png', value: 'text 3' },
       ],
       modalVisible: false,
+      signature: '',
       slides: [
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
@@ -40,7 +42,7 @@ class SampleComponents extends React.PureComponent<any, any> {
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' }
-      ]
+      ],
     }
 
     this.handleInputVal = this.handleInputVal.bind(this)
@@ -48,6 +50,7 @@ class SampleComponents extends React.PureComponent<any, any> {
     this.handleClickSlide = this.handleClickSlide.bind(this)
     this.handleClickButton = this.handleClickButton.bind(this)
     this.handleModal = this.handleModal.bind(this)
+    this.handleSignature = this.handleSignature.bind(this)
   }
 
   public handleModal () {
@@ -57,6 +60,10 @@ class SampleComponents extends React.PureComponent<any, any> {
 
   public handleInputVal(inputVal: string | number) {
     this.setState((state: any) => Object.assign({}, state, { inputVal }))
+  }
+
+  public handleSignature(signature: string | number) {
+    this.setState((state: any) => Object.assign({}, state, { signature }))
   }
 
   public handleInputFile(base64Image: string) {
@@ -437,6 +444,13 @@ class SampleComponents extends React.PureComponent<any, any> {
                 value="close modal" />
             </Modal>
         }
+        <TextTitle
+          value="Signature's components:" />
+
+        <Signature
+          label="assinatura"
+          onChange={this.handleSignature}
+          value={this.state.signature}/>
       </div>
     )
   }

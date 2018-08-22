@@ -4,6 +4,7 @@ import './App.css';
 // import './config/firebase.config'
 
 import Clients from './screens/Clients'
+import CreateTattoo from './screens/CreateTattoo'
 import Home from './screens/Home'
 import Login from './screens/Login'
 import SComp from './screens/SamplesComponents'
@@ -20,6 +21,9 @@ class App extends React.Component {
           <Route
             path="/clients"
             component={Clients} />
+          <Route
+            path="/create-tattoo"
+            component={CreateTattoo} />
           <Route
             path="/extra"
             component={SComp} />

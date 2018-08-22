@@ -34,15 +34,15 @@ class Menu extends React.Component<IMenu, any> {
 
   public setInnerMenuAttributes () {
     window.setTimeout(() => {
-      const {
-        offsetX,
-        offsetY
-      } = this.props
-      // const documentHeight = document.documentElement.offsetHeight
       this.getMenu().addEventListener('click', this.props.onClick)
-      this.getMenuElement().style.left = `${offsetX}`
-      this.getMenuElement().style.top = `${offsetY}`
     }, 0)
+    const {
+      offsetX,
+      offsetY
+    } = this.props
+    // const documentHeight = document.documentElement.offsetHeight
+    this.getMenuElement().style.left = `${offsetX}`
+    this.getMenuElement().style.top = `${offsetY}`
   }
 
   public getMenu (): HTMLElement {

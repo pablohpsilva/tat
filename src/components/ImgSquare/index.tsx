@@ -1,5 +1,6 @@
 import className from 'classnames'
 import * as React from 'react'
+import { readAsDataURL } from '../../utils/file'
 
 import TextTitle from '../TextTitle'
 import IImgSquare from './IImgSquare'
@@ -7,10 +8,41 @@ import IImgSquare from './IImgSquare'
 import './ImgSquare.css'
 
 class ImgSquare extends React.PureComponent<IImgSquare, any> {
+  public static defaultProps = {
+    disabled: false,
+    editable: true
+  }
+
   constructor(props: IImgSquare) {
     super(props)
 
     this.handleOnClick = this.handleOnClick.bind(this)
+    this.triggerInputFile = this.triggerInputFile.bind(this)
+    this.handleOnChangeInputFile = this.handleOnChangeInputFile.bind(this)
+  }
+
+  public triggerInputFile() {
+    if (this.props.disabled) {
+      return
+    }
+
+    const input: HTMLElement = document.querySelector('input.ImgSquare--input') as HTMLElement
+    if (input) {
+      input.click()
+    }
+  }
+
+  public handleOnChangeInputFile(event: any) {
+    const { onClick } = this.props
+    if (onClick) {
+      readAsDataURL(event)
+        .then(({ result }) => {
+          if (!result || result.indexOf('data:image') === -1) {
+            return
+          }
+          onClick(result)
+        })
+    }
   }
 
   public handleOnClick (event: any) {
@@ -23,6 +55,7 @@ class ImgSquare extends React.PureComponent<IImgSquare, any> {
   public render () {
     const {
       disabled,
+      editable,
       text,
       sidetext,
       src
@@ -57,15 +90,23 @@ class ImgSquare extends React.PureComponent<IImgSquare, any> {
           'ImgSquare--wrapper': true,
           'ImgSquare--wrapper-disabled': disabled,
         })}
-        onClick={this.handleOnClick}>
+        onClick={editable ? this.triggerInputFile : this.handleOnClick}>
+        {/* onClick={this.handleOnClick}> */}
         <div
           className="ImgSquare--image"
           style={{
             backgroundImage: `url(${src})`
-          }}/>
-        {
-          lowerText
-        }
+          }}>
+          <input
+            hidden={true}
+            className="ImgSquare--input"
+            onChange={this.handleOnChangeInputFile}
+            disabled={disabled}
+            type="file" />
+        </div>
+          {
+            lowerText
+          }
       </div>
     )
   }

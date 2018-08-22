@@ -10,6 +10,10 @@
   text-transform: uppercase;
 }
 
+a.Button--wrapper {
+  height: 24px;
+}
+
 .Button--wrapper-outline {
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 2px;
