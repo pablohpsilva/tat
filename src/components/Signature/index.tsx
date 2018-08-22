@@ -46,7 +46,6 @@ class Signature extends React.Component<ISignature, any> {
 
   public getSignaturePadImage (): string {
     const image = this.signaturePad.toDataURL('image/png')
-    console.log(image)
     return image
   }
 
@@ -136,23 +135,19 @@ class Signature extends React.Component<ISignature, any> {
               </div>
               <div
                 className="Signature--modalControl">
-                <button
-                  id="clear"
-                  onClick={this.closeModal}>
-                  Cancel
-                </button>
+                <Button
+                  onClick={this.closeModal}
+                  value="cancelar"/>
 
-                <button
+                <Button
                   id="clear"
-                  onClick={this.clearSigaturePad}>
-                  Clear
-                </button>
+                  onClick={this.clearSigaturePad}
+                  value="limpar"/>
 
-                <button
+                <Button
                   id="save"
-                  onClick={this.handleChange}>
-                  Save
-                </button>
+                  onClick={this.handleChange}
+                  value="gravar"/>
               </div>
             </Modal>
         }

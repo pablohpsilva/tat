@@ -16,9 +16,33 @@
   border: 1px solid rgba(0, 0, 0, 1);
 }
 
+.Modal--wrapper.Modal--wrapper-visible
+.Signature--modalControl {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Signature--modalControl
+.Button--wrapper {
+  color: rgba(255, 255, 255, 1);
+}
+
+.Signature--signatureWrapper {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  min-height: 50px;
+}
+
 .Signature--empty {
+  color: rgba(0, 0, 0, .8);
   display: block;
-  min-height: 30px;
+  font-size: 10px;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .Signature--label {
