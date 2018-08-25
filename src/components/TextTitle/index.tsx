@@ -26,6 +26,19 @@ class TextTitle extends React.PureComponent<ITextTitle, any> {
 
   constructor (props: ITextTitle) {
     super(props)
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  public handleClick () {
+    const {
+      onClick,
+      value
+    } = this.props
+
+    if (onClick) {
+      onClick(value)
+    }
   }
 
   public render () {
@@ -42,6 +55,7 @@ class TextTitle extends React.PureComponent<ITextTitle, any> {
     return (
       <HTMLTag
         style={style}
+        onClick={this.handleClick}
         className={
           classNames({
             'TextTitle--wrapper': true,

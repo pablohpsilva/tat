@@ -1,4 +1,4 @@
-import IClientItem from '../ClientItem/IClientItem'
+import IClientItem from 'COMP/ClientItem/IClientItem'
 
 export default interface IClientList {
   items: IClientItem[],

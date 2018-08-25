@@ -1,7 +1,7 @@
 import className from 'classnames'
 import * as React from 'react'
 
-import closeImage from '../../static/img/add.svg'
+import closeImage from 'STATIC/img/add.svg'
 import IInput from './IInput'
 
 import './Input.css'

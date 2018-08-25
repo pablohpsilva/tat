@@ -1,13 +1,12 @@
+import Button from 'COMP/Button'
+import ClientList from 'COMP/ClientList'
+import Input from 'COMP/Input'
+import TextTitle from 'COMP/TextTitle'
+import Toolbar from 'COMP/Toolbar'
 import * as Fuse from 'fuse.js'
 import * as React from 'react'
-// import { Link } from 'react-router-dom'
-import Button from '../../components/Button'
-import ClientList from '../../components/ClientList'
-import Input from '../../components/Input'
-import TextTitle from '../../components/TextTitle'
-import Toolbar from '../../components/Toolbar'
 
-import backIcon from '../../static/img/back.svg'
+import backIcon from 'STATIC/img/back.svg'
 
 const clients: object[] = []
 for(let i = 0; i < 40; i += 1) {

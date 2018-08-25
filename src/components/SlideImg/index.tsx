@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import ImgSquare from '../ImgSquare'
-import TextTitle from '../TextTitle'
+import ImgSquare from 'COMP/ImgSquare'
+import TextTitle from 'COMP/TextTitle'
 
-import IImgSquare from '../ImgSquare/IImgSquare'
+import IImgSquare from 'COMP/ImgSquare/IImgSquare'
 import ISlideImg from './ISlideImg'
 
 import './SlideImg.css'

@@ -1,6 +1,6 @@
 import className from 'classnames'
 import * as React from 'react'
-import { readAsDataURL } from '../../utils/file'
+import { readAsDataURL } from 'UTILS/file'
 
 import IImgRound from './IImgRound'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import Button from '../Button'
-import Menu from '../Menu'
+import Button from 'COMP/Button'
+import Menu from 'COMP/Menu'
 
 import IMenuButton from './IMenuButton'
 

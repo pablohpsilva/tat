@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import ClientItem from '../ClientItem'
-import TextTitle from '../TextTitle'
+import ClientItem from 'COMP/ClientItem'
+import TextTitle from 'COMP/TextTitle'
 
-import IClientItem from '../ClientItem/IClientItem'
+import IClientItem from 'COMP/ClientItem/IClientItem'
 import IClientList from './IClientList'
 
 import './ClientList.css'

@@ -2,13 +2,13 @@ import className from 'classnames'
 import * as React from 'react'
 import SignaturePad from 'signature_pad'
 
-import Button from '../Button';
-import Modal from '../Modal';
+import Button from 'COMP/Button';
+import Modal from 'COMP/Modal';
 import ISignature from './ISignature'
 
 import './Signature.css'
 
-import closeImage from '../../static/img/add.svg'
+import closeImage from 'STATIC/img/add.svg'
 
 class Signature extends React.Component<ISignature, any> {
   private signaturePad: any

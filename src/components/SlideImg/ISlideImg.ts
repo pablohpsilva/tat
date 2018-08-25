@@ -1,4 +1,4 @@
-import IImgSquare from '../ImgSquare/IImgSquare'
+import IImgSquare from 'COMP/ImgSquare/IImgSquare'
 
 export default interface ISlideImg {
   images: IImgSquare[],

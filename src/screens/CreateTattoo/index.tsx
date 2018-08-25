@@ -1,19 +1,17 @@
+import Button from 'COMP/Button'
+import ImgRound from 'COMP/ImgRound'
+import Input from 'COMP/Input'
+import Signature from 'COMP/Signature'
+import SlideImg from 'COMP/SlideImg'
+import TextArea from 'COMP/TextArea'
+import TextTitle from 'COMP/TextTitle'
+import Toolbar from 'COMP/Toolbar'
 import * as React from 'react'
-// import { Link } from 'react-router-dom'
-import Button from '../../components/Button'
-// import ClientList from '../../components/ClientList'
-import ImgRound from '../../components/ImgRound'
-import Input from '../../components/Input'
-import Signature from '../../components/Signature'
-import SlideImg from '../../components/SlideImg'
-import TextArea from '../../components/TextArea'
-import TextTitle from '../../components/TextTitle'
-import Toolbar from '../../components/Toolbar'
 
-import IImgSquare from '../../components/ImgSquare/IImgSquare'
+import IImgSquare from 'COMP/ImgSquare/IImgSquare'
 
-// import addIcon from '../../static/img/add_black.svg'
-import backIcon from '../../static/img/back.svg'
+// import addIcon from 'STATIC/img/add_black.svg'
+import backIcon from 'STATIC/img/back.svg'
 
 class CreateTattoo extends React.Component<{}, any> {
   constructor(props: {}) {

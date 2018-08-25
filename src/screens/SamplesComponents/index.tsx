@@ -1,21 +1,20 @@
+import Button from 'COMP/Button'
+import ClientItem from 'COMP/ClientItem'
+import ClientList from 'COMP/ClientList'
+import ImgRound from 'COMP/ImgRound'
+import ImgSquare from 'COMP/ImgSquare'
+import Input from 'COMP/Input'
+import MenuButton from 'COMP/MenuButton'
+import MenuItem from 'COMP/MenuItem'
+import Modal from 'COMP/Modal'
+import Signature from 'COMP/Signature'
+import SlideImg from 'COMP/SlideImg'
+import TextArea from 'COMP/TextArea'
+import TextTitle from 'COMP/TextTitle'
 import * as React from 'react'
-import Button from '../../components/Button'
-import ClientItem from '../../components/ClientItem'
-import ClientList from '../../components/ClientList'
-import ImgRound from '../../components/ImgRound'
-import ImgSquare from '../../components/ImgSquare'
-import Input from '../../components/Input'
-// import Menu from '../../components/Menu'
-import MenuButton from '../../components/MenuButton'
-import MenuItem from '../../components/MenuItem'
-import Modal from '../../components/Modal'
-import Signature from '../../components/Signature'
-import SlideImg from '../../components/SlideImg'
-import TextArea from '../../components/TextArea'
-import TextTitle from '../../components/TextTitle'
 
-import closeImage from '../../static/img/add.svg'
-import buttonVisibleImage from '../../static/img/visible.svg'
+import closeImage from 'STATIC/img/add.svg'
+import buttonVisibleImage from 'STATIC/img/visible.svg'
 
 class SampleComponents extends React.PureComponent<any, any> {
   constructor (props: any) {
@@ -49,6 +48,7 @@ class SampleComponents extends React.PureComponent<any, any> {
     this.handleInputFile = this.handleInputFile.bind(this)
     this.handleClickSlide = this.handleClickSlide.bind(this)
     this.handleClickButton = this.handleClickButton.bind(this)
+    this.handleClickTextTitle = this.handleClickTextTitle.bind(this)
     this.handleModal = this.handleModal.bind(this)
     this.handleSignature = this.handleSignature.bind(this)
   }
@@ -75,6 +75,10 @@ class SampleComponents extends React.PureComponent<any, any> {
     console.log(index)
   }
 
+  public handleClickTextTitle (value: any) {
+    console.log(value)
+  }
+
   public handleClickButton (callback: () => void) {
     window.setTimeout(() => {
       console.log('oi')
@@ -99,6 +103,7 @@ class SampleComponents extends React.PureComponent<any, any> {
 
         <TextTitle
           note={true}
+          onClick={this.handleClickTextTitle}
           value="TextTitle Note"/>
 
         <hr />

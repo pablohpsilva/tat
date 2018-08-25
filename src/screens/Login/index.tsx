@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import Input from '../../components/Input'
-import TextTitle from '../../components/TextTitle'
+import Input from 'COMP/Input'
+import TextTitle from 'COMP/TextTitle'
 
 import './Login.css'
 class Login extends React.Component {

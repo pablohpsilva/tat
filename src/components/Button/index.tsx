@@ -6,7 +6,7 @@ import IButton from './IButton'
 
 import './Button.css'
 
-import loadingPulseImage from '../../static/img/loading.svg'
+import loadingPulseImage from 'STATIC/img/loading.svg'
 
 class Button extends React.PureComponent<IButton, any> {
   public static defaultProps = {

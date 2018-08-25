@@ -1,8 +1,8 @@
 import className from 'classnames'
 import * as React from 'react'
-import { readAsDataURL } from '../../utils/file'
+import { readAsDataURL } from 'UTILS/file'
 
-import TextTitle from '../TextTitle'
+import TextTitle from 'COMP/TextTitle'
 import IImgSquare from './IImgSquare'
 
 import './ImgSquare.css'
