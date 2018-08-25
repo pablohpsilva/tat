@@ -1,4 +1,6 @@
-export default interface ITextArea {
+import IDefaultTypes from 'UTILS/default-types'
+
+export default interface ITextArea extends Partial<IDefaultTypes> {
   readonly placeholder?: string,
   readonly label?: string,
   onBlur?: () => void,

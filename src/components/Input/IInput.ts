@@ -1,13 +1,12 @@
-export default interface IInput {
+import IDefaultTypes from 'UTILS/default-types'
+export default interface IInput extends Partial<IDefaultTypes> {
   readonly clearAble?: boolean,
-  readonly disabled?: boolean,
   readonly label?: string,
   onBlur?: () => void,
   onChange?: (value: string | number) => void,
   onFocus?: () => void,
   outline?: boolean,
   readonly placeholder?: string,
-  style?: object,
   value?: any,
   type?: string
 }

@@ -1,4 +1,6 @@
-export default interface IMenuButton {
+import IDefaultTypes from 'UTILS/default-types'
+
+export default interface IMenuButton extends Partial<IDefaultTypes> {
   children: any,
   icon: string,
   noBounds?: boolean,

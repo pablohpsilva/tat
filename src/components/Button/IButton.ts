@@ -1,15 +1,13 @@
-export default interface IButton {
+import IDefaultTypes from 'UTILS/default-types'
+
+export default interface IButton extends Partial<IDefaultTypes> {
   block: boolean,
-  className?: string,
   clear: boolean,
-  disabled: boolean,
   icon: boolean,
-  id?: string,
   loader: boolean,
   onClick: (callback: () => void) => void,
   noBounds: boolean,
   outline: boolean,
-  style?: object,
   to?: string,
   value: string,
 }

@@ -1,8 +1,9 @@
-export default interface ITextTitle {
+import IDefaultTypes from 'UTILS/default-types'
+
+export default interface ITextTitle extends Partial<IDefaultTypes> {
   invert: boolean,
   note: boolean,
   onClick?: (value: any) => void,
-  style?: object,
   subtitle: boolean,
   title: boolean,
   value: any

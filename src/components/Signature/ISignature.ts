@@ -1,10 +1,10 @@
-export default interface ISignature {
-  readonly disabled?: boolean,
+import IDefaultTypes from 'UTILS/default-types'
+
+export default interface ISignature extends Partial<IDefaultTypes> {
   readonly label?: string,
   onChange?: (value: string | number) => void,
   onClick?: () => void,
   outline?: boolean,
   placeholder?: string,
-  style?: object,
   value?: any
 }

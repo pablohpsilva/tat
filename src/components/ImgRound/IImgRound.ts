@@ -1,6 +1,7 @@
-export default interface IImgRound {
+import IDefaultTypes from 'UTILS/default-types'
+
+export default interface IImgRound extends Partial<IDefaultTypes> {
   alt?: string,
-  disabled?: boolean,
   icon?: boolean,
   onChange?: (result: string) => void,
   src?: string,
