@@ -163,6 +163,15 @@ class SampleComponents extends React.PureComponent<any, any> {
           placeholder="type here"
           onChange={this.handleInputVal}/>
 
+        <Input
+          clearAble={true}
+          outline={true}
+          label="label"
+          value={this.state.inputVal}
+          placeholder="type here"
+          type="password"
+          onChange={this.handleInputVal}/>
+
         <hr />
 
         <TextTitle
@@ -208,6 +217,17 @@ class SampleComponents extends React.PureComponent<any, any> {
           value="SlideImg's components:" />
 
         <SlideImg
+          onClick={this.handleClickSlide}
+          images={this.state.slides}/>
+
+        <SlideImg
+          title="test title"
+          onClick={this.handleClickSlide}
+          images={this.state.slides}/>
+
+        <SlideImg
+          addable={true}
+          title="test title"
           onClick={this.handleClickSlide}
           images={this.state.slides}/>
 
@@ -350,68 +370,6 @@ class SampleComponents extends React.PureComponent<any, any> {
               onClick={this.handleClickButton} />
           </div>
         </MenuButton>
-
-        {/* <Menu
-          active={true}>
-          <div>
-            <MenuItem
-              icon={buttonVisibleImage}
-              value="Ver alguma coisa"
-              onClick={this.handleClickButton} />
-
-            <MenuItem
-              disabled={true}
-              icon={buttonVisibleImage}
-              value="Ver alguma coisa"
-              onClick={this.handleClickButton} />
-          </div>
-        </Menu> */}
-
-        {/* <Menu
-          zebra={true}
-          active={true}>
-          <MenuItem
-            icon={buttonVisibleImage}
-            value="Ver alguma coisa"
-            onClick={this.handleClickButton}/>
-
-          <MenuItem
-            disabled={true}
-            icon={buttonVisibleImage}
-            value="Ver alguma coisa"
-            onClick={this.handleClickButton}/>
-        </Menu>
-
-        <Menu
-          separator={true}
-          active={true}>
-          <MenuItem
-            icon={buttonVisibleImage}
-            value="Ver alguma coisa"
-            onClick={this.handleClickButton}/>
-
-          <MenuItem
-            disabled={true}
-            icon={buttonVisibleImage}
-            value="Ver alguma coisa"
-            onClick={this.handleClickButton}/>
-        </Menu>
-
-        <Menu
-          separator={true}
-          zebra={true}
-          active={true}>
-          <MenuItem
-            icon={buttonVisibleImage}
-            value="Ver alguma coisa"
-            onClick={this.handleClickButton}/>
-
-          <MenuItem
-            disabled={true}
-            icon={buttonVisibleImage}
-            value="Ver alguma coisa"
-            onClick={this.handleClickButton}/>
-        </Menu> */}
 
         <hr />
 

@@ -8,8 +8,11 @@ import ISlideImg from './ISlideImg'
 
 import './SlideImg.css'
 
+import addIcon from 'STATIC/img/add_black.svg'
+
 class SlideImg extends React.Component<ISlideImg, any> {
   public static defaultProps = {
+    addable: false,
     images: [],
     noDataText: 'No data found',
     note: false,
@@ -26,6 +29,7 @@ class SlideImg extends React.Component<ISlideImg, any> {
 
   public render () {
     const {
+      addable,
       images,
       noDataText,
       note,
@@ -33,31 +37,47 @@ class SlideImg extends React.Component<ISlideImg, any> {
       subtitle,
     } = this.props
 
+    const renderTitle = title &&
+      <TextTitle
+        value={title}
+        note={note}
+        subtitle={subtitle} />
+
+    const renderContent = (images && images.length)
+      ? images.map((img: IImgSquare, index: number) => (
+        <ImgSquare
+          key={`imgSquare-${index}`}
+          onClick={this.handleImgSquareClick(img, index)}
+          {...img} />
+      ))
+      : (
+        <div
+          className="SlideImg--noData">
+          <span>{noDataText}</span>
+        </div>
+      )
+
+    const renderAddAble = addable &&
+      <ImgSquare
+        className="SlideImg--addAble"
+        src={addIcon}
+        onClick={this.handleImgSquareClick({ }, -1)}/>
+
     return (
       <div
         className="SlideImg--wrapper">
         {
-          title &&
-            <TextTitle
-              value={title}
-              note={note}
-              subtitle={subtitle}/>
-          }
-        {
-          (images && images.length)
-            ? images.map((img: IImgSquare, index: number) => (
-              <ImgSquare
-                key={`imgSquare-${index}`}
-                onClick={this.handleImgSquareClick(img, index)}
-                {...img} />
-            ))
-            : (
-              <div
-                className="SlideImg--noData">
-                <span>{noDataText}</span>
-              </div>
-            )
+          renderTitle
         }
+        <div
+          className="SlideImg--content">
+          {
+            renderContent
+          }
+          {
+            renderAddAble
+          }
+        </div>
       </div>
     )
   }

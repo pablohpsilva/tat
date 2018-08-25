@@ -23,7 +23,15 @@
   font-size: 14px;
   justify-content: space-between;
   margin: 0;
-  margin-top: 8px;
-  padding: 0 4px;
-  width: calc(184px - calc(4px * 2));
+  margin-top: 4px;
+  padding: 0;
+  width: 184px;
+}
+
+
+.ImgSquare--info
+.TextTitle--wrapper:first-child,
+.ImgSquare--info
+.TextTitle--wrapper:last-child {
+  padding: 0;
 }

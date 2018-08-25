@@ -9,8 +9,7 @@ import './ImgSquare.css'
 
 class ImgSquare extends React.PureComponent<IImgSquare, any> {
   public static defaultProps = {
-    disabled: false,
-    editable: true
+    disabled: false
   }
 
   constructor(props: IImgSquare) {
@@ -54,8 +53,8 @@ class ImgSquare extends React.PureComponent<IImgSquare, any> {
 
   public render () {
     const {
+      className: propClassName,
       disabled,
-      editable,
       text,
       sidetext,
       src
@@ -86,11 +85,16 @@ class ImgSquare extends React.PureComponent<IImgSquare, any> {
 
     return (
       <div
-        className={className({
-          'ImgSquare--wrapper': true,
-          'ImgSquare--wrapper-disabled': disabled,
-        })}
-        onClick={editable ? this.triggerInputFile : this.handleOnClick}>
+        className={
+          className(
+            propClassName,
+            {
+              'ImgSquare--wrapper': true,
+              'ImgSquare--wrapper-disabled': disabled,
+            }
+          )
+        }
+        onClick={!disabled ? this.triggerInputFile : this.handleOnClick}>
         {/* onClick={this.handleOnClick}> */}
         <div
           className="ImgSquare--image"

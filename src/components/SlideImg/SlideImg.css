@@ -1,12 +1,25 @@
 .SlideImg--wrapper {
   display: flex;
+  flex-direction: column;
+}
+
+.SlideImg--content {
+  display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
 }
 
-.SlideImg--wrapper
+.SlideImg--content
 .ImgSquare--wrapper:not(:last-child) {
   margin-right: 16px;
+}
+
+.SlideImg--content
+.SlideImg--addAble
+.ImgSquare--image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2em;
 }
 
 .SlideImg--noData {
@@ -21,9 +34,9 @@
   text-transform: uppercase;
 }
 
-.SlideImg--wrapper
+.SlideImg--content
 .TextTitle--wrapper.TextTitle--wrapper-subtitle,
-.SlideImg--wrapper
+.SlideImg--content
 .TextTitle--wrapper.TextTitle--wrapper-note {
   font-size: 10px;
   padding: 0;
