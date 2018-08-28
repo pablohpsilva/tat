@@ -119,7 +119,7 @@ class Button extends React.PureComponent<IButton, any> {
         style={
           Object.assign(
             {
-              width: width || 'auto'
+              width: width || ''
             },
             style
           )

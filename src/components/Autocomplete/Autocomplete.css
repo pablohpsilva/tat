@@ -1,0 +1,65 @@
+.Autocomplete--wrapper {
+  background-color: rgba(255, 255, 255, .8);
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  justify-content: flex-start;
+  margin: 0;
+  margin-bottom: 8px;
+  min-height: 42px;
+  padding: 4px 8px;
+  position: relative;
+  text-align: left;
+}
+
+.Autocomplete--wrapper-outline {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.Autocomplete--label {
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.Autocomplete--wrapper
+> div
+> input {
+  background-color: transparent;
+  border: none;
+  flex: 1;
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 12px;
+  outline: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.Autocomplete--wrapper
+> div
+.menu {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 2px;
+  box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, .36);
+  position: absolute;
+  width: 100%;
+  z-index: 15;
+}
+
+.Autocomplete--wrapper
+> div
+.menu
+> * {
+  padding: 8px;
+}
+
+.Autocomplete--clearAble {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 7px);
+  transform: rotate(45deg);
+  width: 14px;
+}

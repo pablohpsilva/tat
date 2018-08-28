@@ -12,23 +12,27 @@ class Toolbar extends React.PureComponent<IToolbar, any> {
     this.state = {
       addShadow: false
     }
+
+    this.addEventListener = this.addEventListener.bind(this)
+  }
+
+  public addEventListener (event: any) {
+    const scrollVal = event.target.documentElement.scrollTop
+    if (scrollVal > 10 && !this.state.addShadow) {
+      return this.setState((state: any) => Object.assign({}, state, { addShadow: true }))
+    }
+
+    if (scrollVal < 10) {
+      return this.setState((state: any) => Object.assign({}, state, { addShadow: false }))
+    }
   }
 
   public componentWillMount () {
-    document.addEventListener('scroll', (event: any) => {
-      const scrollVal = event.target.documentElement.scrollTop
-      if (scrollVal > 10 && !this.state.addShadow) {
-        return this.setState((state: any) => Object.assign({}, state, { addShadow: true }))
-      }
-
-      if (scrollVal < 10) {
-        return this.setState((state: any) => Object.assign({}, state, { addShadow: false }))
-      }
-    });
+    document.addEventListener('scroll', this.addEventListener, false)
   }
 
   public componentWillUnmount () {
-    document.removeEventListener('scroll', () => ({}));
+    document.removeEventListener('scroll', this.addEventListener, false)
   }
 
   public render () {

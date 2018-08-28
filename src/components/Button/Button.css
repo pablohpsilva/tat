@@ -11,7 +11,11 @@
 }
 
 a.Button--wrapper {
+  color: rgba(0, 0, 0, 1);
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
   height: 24px;
+  text-decoration: none;
 }
 
 .Button--wrapper-outline {

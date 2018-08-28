@@ -1,3 +1,4 @@
+import Autocomplete from 'COMP/Autocomplete'
 import Button from 'COMP/Button'
 import ImgRound from 'COMP/ImgRound'
 import Input from 'COMP/Input'
@@ -20,63 +21,48 @@ class CreateTattoo extends React.Component<{}, any> {
     this.state = {
       acceptedContract: 'nao',
       age: '',
-      lastTattoo: new Date().toDateString(),
+      cpf: '',
+      lastTattoo: '',
       name: '',
       phone: '',
       picture: '',
       signature: '',
-      tattooPictures: [
-        { editable: true }
-      ]
+      tattooInspirations: [],
+      tattooPictures: []
     }
 
-    this.handleOnClick = this.handleOnClick.bind(this)
-    // this.handleImgSquareInspirationClick = this.handleImgSquareInspirationClick.bind(this)
-    this.handleImgSquareTattooClick = this.handleImgSquareTattooClick.bind(this)
-    // this.handleInputVal = this.handleInputVal.bind(this)
-    this.handleSignatureChange = this.handleSignatureChange.bind(this)
+    this.handleBackClick = this.handleBackClick.bind(this)
+    this.handleSaveClick = this.handleSaveClick.bind(this)
+    this.handleImgSquareClick = this.handleImgSquareClick.bind(this)
     this.updateState = this.updateState.bind(this)
-    this.handleProfilePictureChange = this.handleProfilePictureChange.bind(this)
   }
 
-  public handleOnClick() {
+  public handleBackClick() {
+    console.log('back clicked')
+  }
+
+  public handleSaveClick() {
     console.log('clicked')
   }
 
-  public updateState = (field: string) => (value: string | number) => {
+  public updateState = (field: string) => (value: any) => {
     this.setState((state: any) => Object.assign({}, state, { [field]: value }))
   }
 
-  public handleProfilePictureChange(picture: string) {
-    this.setState((state: any) => Object.assign({}, state, { picture }))
-  }
-
-  // public handleImgSquareInspirationClick(imgObject: IImgSquare, index: number, img: any) {
-  //   const { inspirations } = this.state
-  //   const tattoo = Object.assign({}, imgObject, { src: img })
-  //   inspirations.unshift(tattoo)
-  //   this.setState((state: any) => Object.assign({}, state, { inspirations }))
-  // }
-
-  public handleImgSquareTattooClick(imgObject: IImgSquare, index: number, img: any) {
-    const { tattooPictures } = this.state
+  public handleImgSquareClick = (imgSquareKey: string) => (imgObject: IImgSquare, index: number, img: any) =>{
+    const pictures = this.state[imgSquareKey]
     const tattoo = Object.assign({}, imgObject, { src: img })
-    tattooPictures.unshift(tattoo)
-    this.setState((state: any) => Object.assign({}, state, { tattooPictures }))
+    if (index === -1) {
+      pictures.unshift(tattoo)
+    } else {
+      pictures.splice(index, 1, tattoo)
+    }
+    this.updateState(imgSquareKey)(pictures)
     return
-  }
-
-  // public handleInputVal(inputVal: string | number) {
-  //   this.setState((state: any) => Object.assign({}, state, { inputVal }))
-  // }
-
-  public handleSignatureChange(signature: string | number) {
-    this.setState((state: any) => Object.assign({}, state, { signature }))
   }
 
   public render() {
     const {
-      // acceptedContract,
       age,
       lastTattoo,
       name,
@@ -96,7 +82,7 @@ class CreateTattoo extends React.Component<{}, any> {
             noBounds={true}
             value={backIcon}
             to="/"
-            onClick={this.handleOnClick} />
+            onClick={this.handleBackClick} />
         </Toolbar>
 
         <TextTitle
@@ -104,17 +90,18 @@ class CreateTattoo extends React.Component<{}, any> {
 
         <div
           style={{ padding: '0 8px' }}>
-          <Input
+          <Autocomplete
             value={name}
-            label="cliente"
-            placeholder="nome do cliente"
-            onChange={this.updateState('name')}/>
+            label="nome completo"
+            placeholder="nome completo do cliente"
+            onChange={this.updateState('name')}
+            onSelect={this.updateState('name')}/>
 
           <div
             style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
             <ImgRound
               src={picture}
-              onChange={this.handleProfilePictureChange}/>
+              onChange={this.updateState('picture')}/>
           </div>
 
           <Input
@@ -126,7 +113,14 @@ class CreateTattoo extends React.Component<{}, any> {
           <Input
             value={age}
             label="idade"
+            placeholder="idade do cliente"
             onChange={this.updateState('age')}/>
+
+          <Input
+            value={age}
+            label="CPF"
+            placeholder="cpf do cliente"
+            onChange={this.updateState('cpf')}/>
 
           <Input
             disabled={true}
@@ -137,9 +131,10 @@ class CreateTattoo extends React.Component<{}, any> {
           <TextTitle
             value="Inspiracoes" />
 
-          {/* <SlideImg
-            onClick={this.handleImgSquareInspirationClick}
-            images={this.state.inspirations} /> */}
+          <SlideImg
+            addable={true}
+            onClick={this.handleImgSquareClick('tattooInspirations')}
+            images={this.state.tattooInspirations} />
 
           <TextArea
             label="contrato"
@@ -151,19 +146,20 @@ class CreateTattoo extends React.Component<{}, any> {
             label="assinatura"
             placeholder="toque para assinar"
             value={signature}
-            onChange={this.handleSignatureChange}/>
+            onChange={this.updateState('signature')}/>
 
           <TextTitle
             value="Tatuagem pronta" />
 
           <SlideImg
-            onClick={this.handleImgSquareTattooClick}
+            addable={true}
+            onClick={this.handleImgSquareClick('tattooPictures')}
             images={tattooPictures} />
 
           <Button
             block={true}
             outline={true}
-            onClick={this.handleOnClick}
+            onClick={this.handleSaveClick}
             value="gravar"
             style={{ marginBottom: 16 }}/>
         </div>

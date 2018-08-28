@@ -12,8 +12,12 @@ class ImgSquare extends React.PureComponent<IImgSquare, any> {
     disabled: false
   }
 
+  private id: string
+
   constructor(props: IImgSquare) {
     super(props)
+
+    this.id = `ImgSquare-${Math.random().toString(36).slice(4)}`
 
     this.handleOnClick = this.handleOnClick.bind(this)
     this.triggerInputFile = this.triggerInputFile.bind(this)
@@ -25,7 +29,7 @@ class ImgSquare extends React.PureComponent<IImgSquare, any> {
       return
     }
 
-    const input: HTMLElement = document.querySelector('input.ImgSquare--input') as HTMLElement
+    const input: HTMLElement = document.querySelector(`#${this.id} input.ImgSquare--input`) as HTMLElement
     if (input) {
       input.click()
     }
@@ -85,6 +89,7 @@ class ImgSquare extends React.PureComponent<IImgSquare, any> {
 
     return (
       <div
+        id={this.id}
         className={
           className(
             propClassName,

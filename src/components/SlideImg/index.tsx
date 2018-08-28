@@ -20,6 +20,12 @@ class SlideImg extends React.Component<ISlideImg, any> {
     title: ''
   }
 
+  constructor (props: ISlideImg) {
+    super(props)
+
+    this.handleImgSquareClick = this.handleImgSquareClick.bind(this)
+  }
+
   public handleImgSquareClick = (img: IImgSquare, index: number) => (result: any) => {
     const { onClick } = this.props
     if (onClick) {
@@ -50,18 +56,20 @@ class SlideImg extends React.Component<ISlideImg, any> {
           onClick={this.handleImgSquareClick(img, index)}
           {...img} />
       ))
-      : (
-        <div
-          className="SlideImg--noData">
-          <span>{noDataText}</span>
-        </div>
-      )
+      : addable
+        ? null
+        : (
+          <div
+            className="SlideImg--noData">
+            <span>{noDataText}</span>
+          </div>
+        )
 
     const renderAddAble = addable &&
       <ImgSquare
         className="SlideImg--addAble"
         src={addIcon}
-        onClick={this.handleImgSquareClick({ }, -1)}/>
+        onClick={this.handleImgSquareClick({}, -1)}/>
 
     return (
       <div

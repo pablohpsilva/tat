@@ -31,11 +31,11 @@ class Home extends React.Component<{}, any> {
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal2', phone: '34 98888-8888' },
       ],
       menu: [
-        { icon: homeIcon, value: 'home' },
-        { icon: addIcon, value: 'criar nova tattoo' },
-        { icon: usersIcon, value: 'clientes' },
-        { icon: contractIcon, value: 'contratos' },
-        { icon: likeIcon, value: 'historico' },
+        { icon: homeIcon, value: 'home', to: '/' },
+        { icon: addIcon, value: 'criar nova tattoo', to: '/create-tattoo' },
+        { icon: usersIcon, value: 'clientes', to: '/clients' },
+        { icon: contractIcon, value: 'contratos', to: '' },
+        { icon: likeIcon, value: 'historico', to: '' },
       ],
       slides: [
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
@@ -52,10 +52,19 @@ class Home extends React.Component<{}, any> {
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' }
       ]
     }
+
+    this.handleMenuClick = this.handleMenuClick.bind(this)
   }
 
   public handleOnClick () {
     console.log('clicked')
+  }
+
+  public handleMenuClick () {
+    const menuBackdrop: HTMLElement = document.querySelector('.Menu--backdrop') as HTMLElement
+    if (menuBackdrop) {
+      menuBackdrop.click()
+    }
   }
 
   public render () {
@@ -73,6 +82,7 @@ class Home extends React.Component<{}, any> {
                 this.state.menu.map((item: any, index: number) => (
                   <MenuItem
                     key={`MenuItem-${index}`}
+                    onClick={this.handleMenuClick}
                     {...item} />
                 ))
               }
