@@ -33,6 +33,7 @@ class TextArea extends React.Component<ITextArea, any> {
       label,
       outline,
       placeholder,
+      style,
       value
     } = this.props
 
@@ -41,7 +42,8 @@ class TextArea extends React.Component<ITextArea, any> {
         className={className({
           'TextArea--wrapper': true,
           'TextArea--wrapper-outline': outline
-        })}>
+        })}
+        style={style}>
         {
           label && <label className="TextArea--label">{label}</label>
         }

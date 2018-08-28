@@ -1,0 +1,10 @@
+.Contracts--wrapper
+.TextArea--wrapper {
+  height: calc(100vh - 200px);
+}
+
+.Contracts--wrapper
+.TextArea--wrapper
+textarea {
+  height: 100%;
+}

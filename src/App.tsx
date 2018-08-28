@@ -4,7 +4,9 @@ import './App.css';
 // import './config/firebase.config'
 
 import Clients from './screens/Clients'
+import Contracts from './screens/Contracts'
 import CreateTattoo from './screens/CreateTattoo'
+import History from './screens/History'
 import Home from './screens/Home'
 import Login from './screens/Login'
 import SComp from './screens/SamplesComponents'
@@ -19,8 +21,14 @@ class App extends React.Component {
             path="/login"
             component={Login} />
           <Route
+            path="/contracts"
+            component={Contracts} />
+          <Route
             path="/clients"
             component={Clients} />
+          <Route
+            path="/history"
+            component={History} />
           <Route
             path="/create-tattoo"
             component={CreateTattoo} />

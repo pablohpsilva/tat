@@ -36,6 +36,11 @@
   min-height: 50px;
 }
 
+.Signature--signatureWrapper
+> img {
+  width: 100%;
+}
+
 .Signature--empty {
   color: rgba(0, 0, 0, .8);
   display: block;

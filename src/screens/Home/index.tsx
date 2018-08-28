@@ -15,6 +15,14 @@ import moreIcon from 'STATIC/img/more.svg'
 import usersIcon from 'STATIC/img/users.svg'
 
 import './Home.css'
+
+const menu = [
+  { icon: homeIcon, value: 'home', to: '/' },
+  { icon: addIcon, value: 'criar nova tattoo', to: '/create-tattoo' },
+  { icon: usersIcon, value: 'clientes', to: '/clients' },
+  { icon: contractIcon, value: 'contratos', to: 'contracts' },
+  { icon: likeIcon, value: 'historico', to: 'history' },
+]
 class Home extends React.Component<{}, any> {
   constructor (props: {}) {
     super(props)
@@ -29,13 +37,6 @@ class Home extends React.Component<{}, any> {
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal', phone: '34 99999-9999' },
         { image: 'https://i.stack.imgur.com/B1qxgl.png', lastPurchase: 'R$ 800,00', lastVisit: '08/08/2018', name: 'fulano de tal2', phone: '34 98888-8888' },
-      ],
-      menu: [
-        { icon: homeIcon, value: 'home', to: '/' },
-        { icon: addIcon, value: 'criar nova tattoo', to: '/create-tattoo' },
-        { icon: usersIcon, value: 'clientes', to: '/clients' },
-        { icon: contractIcon, value: 'contratos', to: '' },
-        { icon: likeIcon, value: 'historico', to: '' },
       ],
       slides: [
         { src: 'https://i.stack.imgur.com/B1qxgl.png', text: 'fulano de tal', sidetext: '08/08/2018' },
@@ -79,7 +80,7 @@ class Home extends React.Component<{}, any> {
             offsetY="24px">
             <div>
               {
-                this.state.menu.map((item: any, index: number) => (
+                menu.map((item: any, index: number) => (
                   <MenuItem
                     key={`MenuItem-${index}`}
                     onClick={this.handleMenuClick}
