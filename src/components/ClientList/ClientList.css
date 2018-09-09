@@ -1,13 +1,13 @@
 .ClientList--wrapper
 .ClientItem--wrapper:nth(n*2) {
-  background-color: #F8F8F8;
+  background-color: var(--background-color-opaque);
 }
 
 .ClientList--noData {
   align-items: center;
-  color: rgba(0, 0, 0, .36);
+  color: var(--seconday-color);
   display: flex;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-family);
   justify-content: center;
   min-height: 100px;
   text-align: center;

@@ -5,7 +5,7 @@ export default interface IButton extends Partial<IDefaultTypes> {
   clear: boolean,
   icon: boolean,
   loader: boolean,
-  onClick: (callback: () => void) => void,
+  onClick?: (callback: () => void) => void,
   noBounds: boolean,
   outline: boolean,
   to?: string,

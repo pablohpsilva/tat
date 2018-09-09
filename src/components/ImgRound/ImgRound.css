@@ -4,13 +4,14 @@
 }
 
 .ImgRound--wrapper {
+  background-color: var(--background-color-opaque);
   background-position: center;
   background-size: cover;
-  box-shadow: 1px 1px 10px -4px rgba(0, 0, 0, 1);
+  box-shadow: var(--regular-shadow);
   cursor: pointer;
   height: 250px;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: var(--regular-spacing);
   width: 250px;
 }
 

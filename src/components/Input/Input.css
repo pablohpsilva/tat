@@ -1,43 +1,50 @@
 .Input--wrapper {
-  background-color: rgba(255, 255, 255, .8);
+  background-color: var(--background-color);
   display: flex;
-  padding: 4px 8px;
+  font-family: var(--regular-block-padding);
   flex-direction: column;
-  font-family: Montserrat;
+  font-family: var(--font-family);
   justify-content: flex-start;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: var(--regular-spacing);
   min-height: 42px;
   position: relative;
+  padding: calc(var(--regular-spacing) / 2) var(--regular-spacing);
   text-align: left;
+  transition: var(--regular-transition);
+  will-change: contents;
 }
 
 .Input--wrapper-outline {
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: var(--regular-border);
 }
 
 .Input--label {
+  color: var(--primary-color);
   font-size: 10px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: var(--regular-spacing);
   text-transform: uppercase;
 }
 
 .Input--text {
   background-color: transparent;
   border: none;
+  color: var(--primary-color);
   flex: 1;
-  font-family: Montserrat;
+  font-family: var(--font-family);
   font-weight: 300;
   font-size: 12px;
   outline: none;
+  padding: 0;
   text-transform: uppercase;
 }
 
 .Input--clearAble {
   cursor: pointer;
+  filter: var(--icon-color);
   position: absolute;
-  right: 8px;
+  right: var(--regular-spacing);
   top: calc(50% - 7px);
   transform: rotate(45deg);
   width: 14px;

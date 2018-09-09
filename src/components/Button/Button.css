@@ -1,25 +1,33 @@
 .Button--wrapper {
   background-color: transparent;
   border: none;
+  color: var(--primary-color);
   cursor: pointer;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-family);
   min-width: 80px;
   height: 40px;
   outline: none;
-  padding: 8px;
+  padding: var(--regular-spacing);
   text-transform: uppercase;
+  transition: var(--regular-transition);
+  will-change: contents;
+}
+
+.Button--wrapper-icon {
+  min-width: calc(24px + calc(var(--regular-spacing) * 2));
+  width: auto;
 }
 
 a.Button--wrapper {
-  color: rgba(0, 0, 0, 1);
-  font-family: Montserrat, sans-serif;
+  color: var(--primary-color);
+  font-family: var(--font-family);
   font-size: 11px;
   height: 24px;
   text-decoration: none;
 }
 
 .Button--wrapper-outline {
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: var(--regular-border);
   border-radius: 2px;
 }
 
@@ -34,6 +42,7 @@ a.Button--wrapper {
 }
 
 .Button--icon {
+  filter: var(--icon-color);
   height: 100%;
 }
 

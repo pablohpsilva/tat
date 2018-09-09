@@ -1,15 +1,20 @@
 .TextTitle--wrapper {
-  font-family: Montserrat, sans-serif;
+  color: var(--primary-color);
+  font-family: var(--font-family);
   font-weight: 600;
   margin: 0;
-  margin-bottom: 8px;
-  padding: 0 8px;
+  margin-bottom: var(--regular-spacing);
+  padding: 0 var(--regular-spacing);
   text-align: left;
   text-transform: uppercase;
 }
 
 .TextTitle--wrapper-invert {
   color: rgba(255, 255, 255, 1);
+}
+
+.TextTitle--wrapper.TextTitle--wrapper-subtitle {
+  color: var(--secondary-color);
 }
 
 .TextTitle--wrapper.TextTitle--wrapper-subtitle,

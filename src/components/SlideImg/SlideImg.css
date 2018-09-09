@@ -24,10 +24,10 @@
 
 .SlideImg--noData {
   align-items: center;
-  color: rgba(0, 0, 0, .36);
+  color: var(--secondary-color);
   display: flex;
   flex: 1;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-family);
   justify-content: center;
   min-height: 100px;
   text-align: center;

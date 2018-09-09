@@ -1,19 +1,22 @@
 .Signature--wrapper {
-  background-color: rgba(255, 255, 255, .8);
+  background-color: var(--background-color);
   display: flex;
-  padding: 4px 8px;
+  font-family: var(--regular-block-padding);
   flex-direction: column;
-  font-family: Montserrat;
+  font-family: var(--font-family);
   justify-content: flex-start;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: var(--regular-spacing);
   min-height: 42px;
+  padding: calc(var(--regular-spacing) / 2) var(--regular-spacing);
   position: relative;
   text-align: left;
+  transition: var(--regular-transition);
+  will-change: contents;
 }
 
 .Signature--wrapper-outline {
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: var(--regular-border);
 }
 
 .Modal--wrapper.Modal--wrapper-visible
@@ -39,10 +42,11 @@
 .Signature--signatureWrapper
 > img {
   width: 100%;
+  filter: var(--icon-color);
 }
 
 .Signature--empty {
-  color: rgba(0, 0, 0, .8);
+  color: var(--primary-color);
   display: block;
   font-size: 10px;
   font-weight: 300;
@@ -51,8 +55,9 @@
 }
 
 .Signature--label {
+  color: var(--primary-color);
   font-size: 10px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: var(--regular-spacing);
   text-transform: uppercase;
 }

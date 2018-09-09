@@ -38,8 +38,8 @@
 .Modal--wrapper-close {
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: var(--regular-spacing);
+  top: var(--regular-spacing);
 }
 
 .Modal--wrapper

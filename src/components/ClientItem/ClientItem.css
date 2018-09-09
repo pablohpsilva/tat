@@ -1,23 +1,23 @@
 .ClientItem--wrapper {
   align-items: center;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: transparent;
   display: flex;
   font-size: 14px;
   justify-content: space-between;
-  padding: 4px 8px;
+  font-family: var(--regular-block-padding);
 }
 
 .ClientItem--clientInfo,
 .ClientItem--lastPurchaseInfo {
-  max-width: calc(8px + calc(100vw / 4));
+  max-width: calc(var(--regular-spacing) + calc(100vw / 4));
 }
 
 .ClientItem--wrapper
 > .ClientItem--clientInfo
 > .TextTitle--wrapper.TextTitle--wrapper-note:first-child {
-  color: rgba(0, 0, 0, 1);
+  color: var(--primary-color);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: calc(8px + calc(100vw / 4));
+  width: calc(var(--regular-spacing) + calc(100vw / 4));
 }

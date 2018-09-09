@@ -4,11 +4,13 @@
   border: none;
   cursor: pointer;
   display: flex;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-family);
   outline: none;
-  padding: 4px 8px;
+  font-family: var(--regular-block-padding);
   text-transform: uppercase;
-  width: 100%;
+  transition: var(--regular-transition);
+  width: calc(100% - calc(var(--regular-spacing) * 2));
+  will-change: contents;
 }
 
 button.MenuItem--wrapper.MenuItem--wrapper-disabled {
@@ -19,13 +21,15 @@ button.MenuItem--wrapper.MenuItem--wrapper-disabled > * {
 }
 
 .MenuItem--icon {
+  filter: var(--icon-color);
   margin-right: 16px;
   width: 21px;
 }
 
 .MenuItem--text {
+  color: var(--primary-color);
   overflow: hidden;
-  width: calc(100% - calc(8px + 21px));
+  width: calc(100% - calc(var(--regular-spacing) + 21px));
   white-space: nowrap;
   text-align: left;
   text-overflow: ellipsis;
