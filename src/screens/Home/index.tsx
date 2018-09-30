@@ -4,6 +4,7 @@ import MenuButton from 'COMP/MenuButton'
 import MenuItem from 'COMP/MenuItem'
 import SlideImg from 'COMP/SlideImg'
 import TextTitle from 'COMP/TextTitle'
+import Timeline from 'COMP/Timeline'
 import Toolbar from 'COMP/Toolbar'
 import * as React from 'react'
 
@@ -90,6 +91,8 @@ class Home extends React.Component<{}, any> {
             </div>
           </MenuButton>
         </Toolbar>
+
+        <Timeline/>
 
         <TextTitle
           value="Resumo/mês"/>

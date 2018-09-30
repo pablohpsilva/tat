@@ -1,0 +1,105 @@
+.timeline {
+  width: 100%;
+  overflow-x: scroll;
+  --event-dot-size: 8px;
+  --border-width: 1px;
+  --border-color: rgb(223, 223, 223);
+  --border-color-active: rgb(123, 157, 111);
+  --default-gap: 20px;
+}
+
+.timeline__wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.timeline__bar--background {
+  background-color: var(--border-color);
+  display: block;
+  height: var(--border-width);
+  width: 100%;
+}
+
+.timeline__bar--progress {
+  background-color: black;
+  display: block;
+  height: var(--border-width);
+  transform-origin: left center 0px;
+  transition: all .36s ease;
+}
+
+.timeline__bar--background,
+.timeline__bar--progress {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+}
+
+/* timeline <ol> */
+.timeline__events {
+  column-gap: var(--default-gap);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  list-style: none;
+  padding: 0;
+}
+
+.timeline__events > .timeline__event {
+  margin: 0 calc(var(--default-gap) / 2);
+}
+
+.timeline__events > .timeline__event:first-child {
+  margin: 0;
+  margin-right: calc(var(--default-gap) / 2);
+}
+
+.timeline__events > .timeline__event:last-child {
+  margin: 0;
+  margin-left: calc(var(--default-gap) / 2);
+}
+
+/* timeline <li> */
+.timeline__event {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+
+.event__text--hide {
+  display: none;
+}
+
+.event__text--up {
+  margin-bottom: calc(var(--default-gap) / 2);
+}
+
+.event__dot {
+  background-color: rgb(248, 248, 248);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 50%;
+  height: var(--event-dot-size);
+  position: absolute;
+  top: calc(50% - calc(var(--event-dot-size) / 2));
+  left: calc(50% - calc(var(--event-dot-size) / 2));
+  transition: all 1s ease;
+  width: var(--event-dot-size);
+}
+
+.event__text--down {
+  margin-top: calc(var(--default-gap) / 2);
+}
+
+.timeline__event--active >
+.event__dot {
+  background-color: var(--border-color-active);
+  border: var(--border-width) solid var(--border-color-active);
+}
+
+.event__text--up,
+.event__dot,
+.event__text--down {
+  cursor: pointer;
+}
